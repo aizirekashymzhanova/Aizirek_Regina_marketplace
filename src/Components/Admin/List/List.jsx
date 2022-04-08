@@ -29,7 +29,7 @@ const List = () => {
   };
 
   return (
-    <div>
+    <div style={{ marginBottom: "20px" }}>
       <h2>List of Products</h2>
       {products && products.length > 0 ? (
         <TableContainer component={Paper}>

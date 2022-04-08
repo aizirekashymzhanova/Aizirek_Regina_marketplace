@@ -19,7 +19,7 @@ const Form = ({ saveValues, compForEdit, oneProd, getOneProduct }) => {
   const [inpValues, setInpValues] = useState(initValues);
   const { id } = useParams();
 
-  //todo ===> EDIT
+  //for edit
   useEffect(() => {
     if (compForEdit) {
       getOneProduct(id);
@@ -31,7 +31,7 @@ const Form = ({ saveValues, compForEdit, oneProd, getOneProduct }) => {
     }
   }, [oneProd]);
 
-  //todo ===> END OF EDIT
+  //end of for edit
 
   const handleChange = (e) => {
     let obj = {
@@ -51,7 +51,7 @@ const Form = ({ saveValues, compForEdit, oneProd, getOneProduct }) => {
   };
 
   return (
-    <div>
+    <div style={{ marginBottom: "20px" }}>
       <form
         onSubmit={(e) => handleSubmit(e)}
         style={{
@@ -61,6 +61,7 @@ const Form = ({ saveValues, compForEdit, oneProd, getOneProduct }) => {
         className="form"
       >
         <TextField
+          className="text-field"
           name="title"
           value={inpValues.title}
           onChange={(e) => handleChange(e)}
@@ -68,7 +69,7 @@ const Form = ({ saveValues, compForEdit, oneProd, getOneProduct }) => {
           label="Title"
           variant="outlined"
         />
-        <FormControl fullWidth>
+        <FormControl className="text-field">
           <InputLabel id="demo-simple-select-label">Type</InputLabel>
           <Select
             labelId="demo-simple-select-label"
@@ -86,6 +87,7 @@ const Form = ({ saveValues, compForEdit, oneProd, getOneProduct }) => {
           </Select>
         </FormControl>
         <TextField
+          className="text-field"
           name="price"
           value={inpValues.price}
           onChange={(e) => handleChange(e)}
@@ -94,6 +96,7 @@ const Form = ({ saveValues, compForEdit, oneProd, getOneProduct }) => {
           variant="outlined"
         />
         <TextField
+          className="text-field"
           name="img"
           value={inpValues.img}
           onChange={(e) => handleChange(e)}
@@ -102,6 +105,7 @@ const Form = ({ saveValues, compForEdit, oneProd, getOneProduct }) => {
           variant="outlined"
         />
         <TextField
+          className="text-field"
           name="description"
           value={inpValues.description}
           onChange={(e) => handleChange(e)}
@@ -111,7 +115,12 @@ const Form = ({ saveValues, compForEdit, oneProd, getOneProduct }) => {
           multiline
           rows={3}
         />
-        <Button type="submit" variant="contained" color="warning">
+        <Button
+          type="submit"
+          variant="contained"
+          color="warning"
+          className="text-button"
+        >
           Submit
         </Button>
       </form>

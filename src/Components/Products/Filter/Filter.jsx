@@ -17,7 +17,6 @@ const Filter = ({
   minSliderValue,
   handleReset,
 }) => {
-  console.log(type);
   return (
     <div style={{ textAlign: "center" }}>
       <h1>Filter</h1>

@@ -9,8 +9,6 @@ const Admin = () => {
   return (
     <div>
       <Container maxWidth="lg">
-        <h1>Admin page</h1>
-
         {pathname !== "/admin/add" ? (
           <Link to="add">
             <IconButton sx={{ bgcolor: "text.secondary" }}>

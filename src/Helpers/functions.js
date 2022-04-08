@@ -7,6 +7,6 @@ export const calcTotalPrice = (arr) => {
 };
 
 // считывает
-export const calSubPrice = (elem) => {
+export const calcSubPrice = (elem) => {
   return elem.count * elem.item.price;
 };

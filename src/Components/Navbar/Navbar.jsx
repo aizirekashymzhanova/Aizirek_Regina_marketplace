@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -19,6 +19,7 @@ import { Button } from "@mui/material";
 import { Link as RouterLink, NavLink } from "react-router-dom";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import "./Navbar.css";
+import { useCart } from "../../Context/CartContextProvider";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -63,6 +64,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function PrimarySearchAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+  const { getCartLength, cartLength } = useCart();
+
+  React.useEffect(() => {
+    getCartLength();
+  }, []);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -292,7 +298,7 @@ export default function PrimarySearchAppBar() {
                 aria-haspopup="true"
                 color="inherit"
               >
-                <Badge badgeContent={1} color="error">
+                <Badge badgeContent={+cartLength} color="warning">
                   <ShoppingCartIcon />
                 </Badge>
               </IconButton>

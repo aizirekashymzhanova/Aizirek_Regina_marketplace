@@ -1,17 +1,12 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import { Container, Grid, Typography } from "@mui/material";
+import React from "react";
+import "./Footer.css";
 
-export default function BasicList() {
+const Footer = () => {
   return (
-    <div></div>
-    // <Container maxWidth="xl">
-    //   <Grid container spacing={4}>
-    //     <Typography component="body1">Shop</Typography>
-    //     <Typography component="body1">Shop</Typography>
-    //     <Typography component="body1">Shop</Typography>
-    //     <Typography component="body1">Shop</Typography>
-    //   </Grid>
-    // </Container>
+    <div className="footer">
+      <h2>Footer</h2>
+    </div>
   );
-}
+};
+
+export default Footer;

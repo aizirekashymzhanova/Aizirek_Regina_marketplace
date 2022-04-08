@@ -40,13 +40,13 @@ const Home = () => {
         </div>
       </AwesomeSlider>
       <Container>
-        <Typography className="home-p" mt="50px">
+        <Typography className="home-p" mt="50px" sx={{ fontWeight: "bold" }}>
           At Sweet Lady Jane we break our own eggs, peel our own apples, roll
           our own pastry, and squeeze our own lemons. We use the finest fair
           trade chocolate, the freshest butter and cream, the highest quality
           in-season fruit, and no preservatives.
         </Typography>
-        <Typography>
+        <Typography className="home-p" color="red" sx={{ fontWeight: "bold" }}>
           Our mission is simple – we make good things even better.
         </Typography>
       </Container>

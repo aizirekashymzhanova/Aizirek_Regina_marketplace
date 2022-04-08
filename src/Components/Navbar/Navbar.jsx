@@ -168,7 +168,18 @@ export default function PrimarySearchAppBar() {
             aria-label="open drawer"
             sx={{ mr: 2 }}
           >
-            <Typography>HOME</Typography>
+            <Button
+              sx={{
+                my: 2,
+                color: "white",
+                display: "block",
+                fontSize: "14px",
+              }}
+              component={NavLink}
+              to="/"
+            >
+              HOME
+            </Button>
           </IconButton>
 
           <Search>

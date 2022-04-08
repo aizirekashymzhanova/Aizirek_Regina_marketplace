@@ -8,11 +8,14 @@ import Typography from "@mui/material/Typography";
 import { Grid, IconButton } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
+import { useCart } from "../../../Context/CartContextProvider";
 
 export default function OneProduct({ item }) {
+  const { addDelToCart, isProdInCart } = useCart();
+  const [inCart, setInCart] = React.useState(isProdInCart(item.id));
   return (
     <Grid item xs={12} sm={6} md={4}>
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ maxWidth: 345, height4: 500 }} className="one-card">
         <CardMedia
           component="img"
           height="240"
@@ -20,7 +23,7 @@ export default function OneProduct({ item }) {
           alt={item.title}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="body1" component="div">
             {item.title}
           </Typography>
           <Typography variant="h6" color="green">
@@ -30,11 +33,17 @@ export default function OneProduct({ item }) {
         </CardContent>
 
         <CardActions>
-          <IconButton>
+          <IconButton
+            onClick={() => {
+              addDelToCart(item);
+              setInCart(isProdInCart(item.id));
+            }}
+            color={inCart ? "secondary" : "inherit"}
+          >
             <ShoppingCartIcon />
           </IconButton>
           <Button component={Link} to={`detail/${item.id}`} size="small">
-            Learn More
+            More Details
           </Button>
         </CardActions>
       </Card>

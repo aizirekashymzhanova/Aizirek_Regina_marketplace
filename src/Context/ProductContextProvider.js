@@ -23,7 +23,7 @@ function reducer(state = INIT_STATE, action) {
         ...state,
         products: action.payload.data,
         pageTotalCount: Math.ceil(
-          action.payload.headers["x-total-count"] / PRODUCTS_LIMIT
+          action.payload.headers["x-total-count"] / 1 / PRODUCTS_LIMIT
         ),
       };
     case ACTIONS.GET_ONE_PRODUCT:

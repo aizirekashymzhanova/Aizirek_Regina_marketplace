@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { createContext, useContext, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
 import { notify, notifyError } from "../Components/Tostify/Toastify";
-import { ACTIONS, API } from "../Helpers/consts";
+import { ACTIONS, API, PRODUCTS_LIMIT } from "../Helpers/consts";
 
 export const productContext = createContext();
 
@@ -22,6 +22,9 @@ function reducer(state = INIT_STATE, action) {
       return {
         ...state,
         products: action.payload.data,
+        pageTotalCount: Math.ceil(
+          action.payload.headers["x-total-count"] / PRODUCTS_LIMIT
+        ),
       };
     case ACTIONS.GET_ONE_PRODUCT:
       return { ...state, oneProd: action.payload };
@@ -97,6 +100,7 @@ const ProductContextProvider = ({ children }) => {
       value={{
         products: state.products,
         oneProd: state.oneProd,
+        pageTotalCount: state.pageTotalCount,
         getProducts,
         addProduct,
         deleteProduct,

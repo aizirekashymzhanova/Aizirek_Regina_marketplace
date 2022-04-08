@@ -158,7 +158,7 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box>
       <AppBar position="static">
         <Toolbar>
           <IconButton
@@ -227,7 +227,7 @@ export default function PrimarySearchAppBar() {
                 fontSize: "14px",
               }}
               component={NavLink}
-              to="/location"
+              to="/local"
             >
               LOCATION
             </Button>

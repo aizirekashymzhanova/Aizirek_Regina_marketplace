@@ -9,6 +9,7 @@ import List from "./Components/Admin/List/List";
 import Add from "./Components/Admin/Add/Add";
 import Edit from "./Components/Admin/Edit/Edit";
 import Cart from "./Pages/Cart";
+import Location from "./Pages/Location";
 // import Register from "./pages/Register";
 // import Login from "./pages/Login";
 // import RequireAuth from "./Components/Auth/RequireAuth";
@@ -22,6 +23,7 @@ const MyRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/local" element={<Location />} />
         {/* <Route path="/admin" element={<Admin />}>
           <Route index element={<List />} />
           <Route path="add" element={<Add />} />

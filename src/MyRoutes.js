@@ -22,11 +22,11 @@ const MyRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/cart" element={<Cart />} />
-        {/* <Route path="/admin" element={<Admin />}>
+        <Route path="/admin" element={<Admin />}>
           <Route index element={<List />} />
           <Route path="add" element={<Add />} />
           <Route path="edit/:id" element={<Edit />} />
-        </Route> */}
+        </Route>
       </Route>
     </Routes>
   );

@@ -8,10 +8,11 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { IconButton } from "@mui/material";
-import DeleteIcon from "@mui/icons-material/Delete";
+import { Fab, IconButton } from "@mui/material";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import EditIcon from "@mui/icons-material/Edit";
 import { Link } from "react-router-dom";
+import "./List.css";
 
 const List = () => {
   const { products, getProducts, deleteProduct } = useProductContext();
@@ -20,33 +21,37 @@ const List = () => {
     getProducts();
   }, []);
 
-  //   const handleDelete = (prod) => {
-  //     // let answer = confirm("Действительно ли вы хотите удалить данный продукт?");
-  //     let answer = true;
+  const handleDelete = (prod) => {
+    // let answer = confirm("Действительно ли вы хотите удалить данный продукт?");
+    let answer = true;
 
-  //     if (answer) deleteProduct(prod);
-  //   };
+    if (answer) deleteProduct(prod);
+  };
 
   return (
     <div>
-      <h2>Admin List</h2>
+      <h2>List of Products</h2>
       {products && products.length > 0 ? (
         <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+          <Table
+            sx={{ minWidth: 650 }}
+            aria-label="simple table"
+            className="list-page"
+          >
             <TableHead>
               <TableRow>
                 <TableCell sx={{ fontWeight: "bold" }}>Title</TableCell>
-                <TableCell sx={{ fontWeight: "bold" }} align="center">
+                <TableCell sx={{ fontWeight: "bold" }} align="left">
                   Type
                 </TableCell>
-                <TableCell sx={{ fontWeight: "bold" }} align="right">
+                <TableCell sx={{ fontWeight: "bold" }} align="left">
                   Image
                 </TableCell>
-                <TableCell sx={{ fontWeight: "bold" }} align="right">
+                <TableCell sx={{ fontWeight: "bold" }} align="left">
                   Price
                 </TableCell>
-                <TableCell sx={{ fontWeight: "bold" }} align="right">
-                  Actions
+                <TableCell sx={{ fontWeight: "bold" }} align="left">
+                  Delete/Edit
                 </TableCell>
               </TableRow>
             </TableHead>
@@ -59,17 +64,20 @@ const List = () => {
                   <TableCell component="th" scope="row">
                     {item.title}
                   </TableCell>
-                  <TableCell align="center">{item.type}</TableCell>
-                  <TableCell align="right">
+                  <TableCell align="left">{item.type}</TableCell>
+                  <TableCell align="left">
                     <img width="40px" src={item.img} alt={item.title} />
                   </TableCell>
-                  <TableCell align="right">{item.price}</TableCell>
-                  <TableCell align="right">
-                    <IconButton>
-                      <DeleteIcon />
+                  <TableCell align="left">{item.price}</TableCell>
+                  <TableCell align="left">
+                    <IconButton
+                      onClick={() => handleDelete(item)}
+                      sx={{ bgcolor: "warning.main" }}
+                    >
+                      <DeleteForeverIcon />
                     </IconButton>
                     <Link to={`edit/${item.id}`}>
-                      <IconButton>
+                      <IconButton sx={{ bgcolor: "warning.main" }}>
                         <EditIcon />
                       </IconButton>
                     </Link>

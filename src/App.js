@@ -1,4 +1,6 @@
 import "./App.css";
+import Toastify from "./Components/Tostify/Toastify";
+import ProductContextProvider from "./Context/ProductContextProvider";
 
 // import ProductContextProvider from "./contexts/ProductContextProvider";
 import MyRoutes from "./MyRoutes";
@@ -9,10 +11,10 @@ import MyRoutes from "./MyRoutes";
 function App() {
   return (
     // <CartContextProvider>
-    //   <ProductContextProvider>
-    //     <Toastify />
-    <MyRoutes />
-    //   </ProductContextProvider>
+    <ProductContextProvider>
+      <Toastify />
+      <MyRoutes />
+    </ProductContextProvider>
     // </CartContextProvider>
   );
 }

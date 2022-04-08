@@ -1,6 +1,6 @@
 import React from "react";
-import { Container, IconButton } from "@mui/material";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
+import { Container, Fab, IconButton } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
 
 import { Link, Outlet, useLocation } from "react-router-dom";
 
@@ -13,8 +13,8 @@ const Admin = () => {
 
         {pathname !== "/admin/add" ? (
           <Link to="add">
-            <IconButton>
-              <AddCircleIcon fontSize="large" />
+            <IconButton sx={{ bgcolor: "text.secondary" }}>
+              <AddIcon />
             </IconButton>
           </Link>
         ) : null}

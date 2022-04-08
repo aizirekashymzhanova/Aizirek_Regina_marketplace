@@ -1,5 +1,13 @@
 .footer {
   margin-top: auto;
   background: linear-gradient(to right, #cee2f3, #efeded);
-  color: white;
+  justify-content: center !important;
+  text-align: center;
+  align-items: center;
+  display: flex;
+}
+
+.footer-inside {
+  display: flex;
+  justify-content: center !important;
 }

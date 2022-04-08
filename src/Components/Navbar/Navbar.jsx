@@ -18,13 +18,14 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import { Button } from "@mui/material";
 import { Link as RouterLink, NavLink } from "react-router-dom";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import "./Navbar.css";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  backgroundColor: alpha(theme.palette.common.black, 0.15),
   "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+    backgroundColor: alpha(theme.palette.common.black, 0.25),
   },
   marginRight: theme.spacing(2),
   marginLeft: 0,
@@ -123,25 +124,52 @@ export default function PrimarySearchAppBar() {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
+        <NavLink to="/about" className="mobile-link">
+          <IconButton size="large" color="inherit"></IconButton>
+          <p>About</p>
+        </NavLink>
       </MenuItem>
       <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          color="inherit"
-        >
-          <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
+        <NavLink to="/products" className="mobile-link">
+          <IconButton
+            size="large"
+            aria-label="show 4 new mails"
+            color="inherit"
+          ></IconButton>
+          <p>Shop</p>
+        </NavLink>
       </MenuItem>
+      <MenuItem>
+        <NavLink to="/feedbacks" className="mobile-link">
+          <IconButton
+            size="large"
+            aria-label="show 4 new mails"
+            color="inherit"
+          ></IconButton>
+          <p>Feedbacks</p>
+        </NavLink>
+      </MenuItem>
+      <MenuItem>
+        <NavLink to="/local" className="mobile-link">
+          <IconButton
+            size="large"
+            aria-label="show 4 new mails"
+            color="inherit"
+          ></IconButton>
+          <p>Location</p>
+        </NavLink>
+      </MenuItem>
+      <MenuItem>
+        <NavLink to="/admin" className="mobile-link">
+          <IconButton
+            size="large"
+            aria-label="show 4 new mails"
+            color="inherit"
+          ></IconButton>
+          <p>Admin</p>
+        </NavLink>
+      </MenuItem>
+
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           size="large"
@@ -158,8 +186,8 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <Box>
-      <AppBar position="static">
+    <Box sx={{ position: "sticky", top: 0, right: 0, left: 0, zIndex: 11 }}>
+      <AppBar position="static" className="navbar-container">
         <Toolbar>
           <IconButton
             size="large"
@@ -171,7 +199,7 @@ export default function PrimarySearchAppBar() {
             <Button
               sx={{
                 my: 2,
-                color: "white",
+                color: "black",
                 display: "block",
                 fontSize: "14px",
               }}
@@ -196,7 +224,7 @@ export default function PrimarySearchAppBar() {
             <Button
               sx={{
                 my: 2,
-                color: "white",
+                color: "black",
                 display: "block",
                 fontSize: "14px",
               }}
@@ -208,7 +236,7 @@ export default function PrimarySearchAppBar() {
             <Button
               sx={{
                 my: 2,
-                color: "white",
+                color: "black",
                 display: "block",
                 fontSize: "14px",
               }}
@@ -220,7 +248,7 @@ export default function PrimarySearchAppBar() {
             <Button
               sx={{
                 my: 2,
-                color: "white",
+                color: "black",
                 display: "block",
                 fontSize: "14px",
               }}
@@ -233,7 +261,7 @@ export default function PrimarySearchAppBar() {
             <Button
               sx={{
                 my: 2,
-                color: "white",
+                color: "black",
                 display: "block",
                 fontSize: "14px",
               }}
@@ -245,7 +273,7 @@ export default function PrimarySearchAppBar() {
             <Button
               sx={{
                 my: 2,
-                color: "white",
+                color: "black",
                 display: "block",
                 fontSize: "16px",
               }}
@@ -256,7 +284,7 @@ export default function PrimarySearchAppBar() {
             </Button>
           </Box>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <RouterLink to="/cart" style={{ color: "white" }}>
+            <RouterLink to="/cart" style={{ color: "black" }}>
               <IconButton
                 size="large"
                 edge="end"
@@ -276,7 +304,6 @@ export default function PrimarySearchAppBar() {
               aria-controls={menuId}
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
-              color="inherit"
             >
               <AccountCircle />
             </IconButton>

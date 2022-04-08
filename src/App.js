@@ -1,4 +1,5 @@
 import "./App.css";
+
 // import ProductContextProvider from "./contexts/ProductContextProvider";
 import MyRoutes from "./MyRoutes";
 // import Toastify from "./Components/Toastify/Toastify";
@@ -15,5 +16,4 @@ function App() {
     // </CartContextProvider>
   );
 }
-
 export default App;

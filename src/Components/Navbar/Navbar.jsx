@@ -15,6 +15,9 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
+import { Button } from "@mui/material";
+import { Link as RouterLink, NavLink } from "react-router-dom";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -165,16 +168,9 @@ export default function PrimarySearchAppBar() {
             aria-label="open drawer"
             sx={{ mr: 2 }}
           >
-            <MenuIcon />
+            <Typography>HOME</Typography>
           </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: "none", sm: "block" } }}
-          >
-            MUI
-          </Typography>
+
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -185,25 +181,83 @@ export default function PrimarySearchAppBar() {
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            <Button
+              sx={{
+                my: 2,
+                color: "white",
+                display: "block",
+                fontSize: "14px",
+              }}
+              component={NavLink}
+              to="/products"
+            >
+              SHOP
+            </Button>
+            <Button
+              sx={{
+                my: 2,
+                color: "white",
+                display: "block",
+                fontSize: "14px",
+              }}
+              component={NavLink}
+              to="/about"
+            >
+              ABOUT
+            </Button>
+            <Button
+              sx={{
+                my: 2,
+                color: "white",
+                display: "block",
+                fontSize: "14px",
+              }}
+              component={NavLink}
+              to="/feedbacks"
+            >
+              FEEDBACKS
+            </Button>
+
+            <Button
+              sx={{
+                my: 2,
+                color: "white",
+                display: "block",
+                fontSize: "14px",
+              }}
+              component={NavLink}
+              to="/location"
+            >
+              LOCATION
+            </Button>
+            <Button
+              sx={{
+                my: 2,
+                color: "white",
+                display: "block",
+                fontSize: "16px",
+              }}
+              component={NavLink}
+              to="/admin"
+            >
+              ADMIN
+            </Button>
+          </Box>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit"
-            >
-              <Badge badgeContent={4} color="error">
-                <MailIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
+            <RouterLink to="/cart" style={{ color: "white" }}>
+              <IconButton
+                size="large"
+                edge="end"
+                aria-label="account of current user"
+                aria-haspopup="true"
+                color="inherit"
+              >
+                <Badge badgeContent={1} color="error">
+                  <ShoppingCartIcon />
+                </Badge>
+              </IconButton>
+            </RouterLink>
             <IconButton
               size="large"
               edge="end"

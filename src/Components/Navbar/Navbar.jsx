@@ -227,7 +227,7 @@ export default function PrimarySearchAppBar() {
                 fontSize: "14px",
               }}
               component={NavLink}
-              to="/location"
+              to="/local"
             >
               LOCATION
             </Button>

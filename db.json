@@ -1,3 +1,204 @@
 {
-  "products": []
+  "products": [
+    {
+      "title": "EASTER TRIPLE BERRY CAKE",
+      "type": "Cakes",
+      "price": 65,
+      "description": "Everyone’s favorite cake covered in buttercream and decorated for Easter Sunday. Inside are layers of yellow butter cake, our signature whipped cream, blueberries, raspberries, and strawberries.",
+      "img": "https://sweetladyjane.com/wp-content/uploads/2019/12/SLJ_Triple-Berry_9_inch.jpg",
+      "id": 3
+    },
+    {
+      "title": "EASTER CARROT CAKE",
+      "type": "Cakes",
+      "price": 65,
+      "description": "Decorated for the holiday, our special Easter Carrot Cake is rich and full of spices, walnuts, and raisins. The cake is filled with a walnut-caramel filling and covered with buttercream.",
+      "img": "https://sweetladyjane.com/wp-content/uploads/2021/03/SLJ_Easter-Carrot-Cake_1200px-300x300.jpg",
+      "id": 4
+    },
+    {
+      "title": "TRIPLE BERRY CAKE",
+      "type": "Cakes",
+      "price": 100,
+      "description": "Yellow butter cake layered with lightly sweetened whipped cream, fresh blueberries, raspberries, and strawberries. Frosted with whipped cream and decorated with buttercream vines",
+      "img": "https://sweetladyjane.com/wp-content/uploads/2021/03/SLJ_Easter-Triple-Berry-Cake_1200px-300x300.jpg",
+      "id": 5
+    },
+    {
+      "title": "CHOCOLATE TRIPLE BERRY CAKE",
+      "type": "Cakes",
+      "price": 150,
+      "description": "Our Triple Berry with chocolate cake, chocolate whipped cream, blueberries, raspberries, and strawberries. Frosted with chocolate whipped cream and decorated with buttercream vines",
+      "img": "https://sweetladyjane.com/wp-content/uploads/2020/01/SLJ_Chocolate-Triple-Berry_6_inch-1-768x768.jpg",
+      "id": 6
+    },
+    {
+      "title": "DARK CHOCOLATE CAKE",
+      "type": "Cakes",
+      "price": 160,
+      "description": "Divine fairtrade chocolate cake with chocolate buttercream and frosted with dark Cordillera chocolate ganache, topped with Divine chocolate curls",
+      "img": "https://sweetladyjane.com/wp-content/uploads/2019/12/SLJ_Choc-Cake_6in_1200px-300x300.jpg",
+      "id": 7
+    },
+    {
+      "title": "RED VELVET CAKE",
+      "type": "Cakes",
+      "price": 70,
+      "description": "Rich red buttermilk cake with layers of cream cheese filling, decorated with buttercream poppies and toasted red velvet cake crumbs",
+      "img": "https://sweetladyjane.com/wp-content/uploads/2019/12/SLJ_Red-Velvet-6_inch-300x300.jpg",
+      "id": 8
+    },
+    {
+      "title": "VANILLA CREME CAKE",
+      "type": "Cakes",
+      "price": 80,
+      "description": "Yellow butter cake with layers of vanilla pastry cream and whipped cream, frosted with vanilla buttercream and decorated with candy confetti",
+      "img": "https://sweetladyjane.com/wp-content/uploads/2019/12/SLJ_Vanilla-Creme_6_inch-768x768.jpg",
+      "id": 9
+    },
+    {
+      "title": "TRIPLE BERRY CHEESECAKE",
+      "type": "CheeseCakes",
+      "price": 60,
+      "description": "Fresh raspberries, blueberries, and strawberries in a vanilla cheesecake with whipped cream icing and graham cracker crust",
+      "img": "https://sweetladyjane.com/wp-content/uploads/2021/05/SLJ_Triple-Berry-Cheesecake_9_inch-768x768.jpg",
+      "id": 10
+    },
+    {
+      "title": "NEW YORK CHEESECAKE",
+      "type": "CheeseCakes",
+      "price": 50,
+      "description": "New York style cheesecake with a hint of citrus zest in a delicious graham cracker crust",
+      "img": "https://sweetladyjane.com/wp-content/uploads/2019/12/SLJ_New-York-Cheesecake_9_inch-300x300.jpg",
+      "id": 11
+    },
+    {
+      "title": "BROWNIE CHEESECAKE",
+      "type": "CheeseCakes",
+      "price": 60,
+      "description": "Vanilla cheesecake filled with Cordillera dark chocolate brownies in a graham cracker crust, topped with more brownies and whipped cream icing",
+      "img": "https://sweetladyjane.com/wp-content/uploads/2019/12/SLJ_Brownie-Cheesecake-9in_1200px-300x300.jpg",
+      "id": 12
+    },
+    {
+      "title": "BANANA PUDDING JAR",
+      "type": "Puddings",
+      "price": 12,
+      "description": "Layers of light vanilla cream, banana cake, chocolate mousse and fresh bananas topped with whipped cream and chocolate curls",
+      "img": "https://sweetladyjane.com/wp-content/uploads/2021/05/SLJ_Banana_Pudding-Jar_1200px-768x768.jpg",
+      "id": 13
+    },
+    {
+      "title": "BERRYMISU JAR",
+      "type": "Puddings",
+      "price": 12,
+      "description": "Layers of mascarpone cream, buttery yellow \u0003cake, blueberry sauce and raspberry mousse \u0003decorated with whipped cream",
+      "img": "https://sweetladyjane.com/wp-content/uploads/2021/05/SLJ_Berrymisu-Jar_1200px-300x300.jpg",
+      "id": 14
+    },
+    {
+      "title": "TIRAMISU JAR",
+      "type": "Puddings",
+      "price": 12,
+      "description": "Layers of mascarpone cream, buttery yellow \u0003cake, blueberry sauce and raspberry mousse \u0003decorated with whipped cream",
+      "img": "https://sweetladyjane.com/wp-content/uploads/2022/01/SLJ_Tiramisu-Jar_temp_1200px-300x300.jpg",
+      "id": 15
+    },
+    {
+      "title": "APPLE PIE",
+      "type": "Tarts",
+      "price": 38,
+      "description": "Pink Lady and Granny Smith apples piled high and baked with cinnamon and nutmeg in a double-baked butter crust",
+      "img": "https://sweetladyjane.com/wp-content/uploads/2020/05/SLJ_Apple-Pie_6_inch-768x768.jpg",
+      "id": 16
+    },
+    {
+      "title": "CHERRY PIE",
+      "type": "Tarts",
+      "price": 38,
+      "description": "Slowly-simmered sweet and tart cherries under a lattice double baked butter crust",
+      "img": "https://sweetladyjane.com/wp-content/uploads/2020/05/SLJ_Cherry-Pie_9_inch-300x300.jpg",
+      "id": 17
+    },
+    {
+      "title": "PEAR ALMOND TART",
+      "type": "Tarts",
+      "price": 60,
+      "description": "Butter pastry baked with rich frangipane filling and wine-poached pears",
+      "img": "https://sweetladyjane.com/wp-content/uploads/2019/12/SLJ-Pear-Almond-Tart-768x768.jpg",
+      "id": 18
+    },
+    {
+      "title": "DARK CHOCOLATE CHIP COOKIE",
+      "type": "cookies",
+      "price": 30,
+      "description": "Perfect combination of semi-sweet chocolate and butter flavors in a cookie",
+      "img": "https://sweetladyjane.com/wp-content/uploads/2019/12/SLJ-Dark-ChocolateChip-Cookie-768x768.jpg",
+      "id": 19
+    },
+    {
+      "title": "DARK CHOCOLATE CHIP TART CHERRY COOKIE",
+      "type": "cookies",
+      "price": 38,
+      "description": "Generous pieces of cherry and semi-sweet chocolate for the perfect sweet and tart match",
+      "img": "https://sweetladyjane.com/wp-content/uploads/2019/12/SLJ_Dark-Chocolate-Chip-Cookie-768x768.jpg",
+      "id": 20
+    },
+    {
+      "title": "OATMEAL RAISIN COOKIE",
+      "type": "cookies",
+      "price": 28,
+      "description": "Delicious buttery oatmeal raisin cookie with walnuts",
+      "img": "https://sweetladyjane.com/wp-content/uploads/2021/05/SLJ_Oatmeal-Raisin-Cookie-300x300.jpg",
+      "id": 21
+    },
+    {
+      "title": "FLOURLESS CHOCOLATE WALNUT COOKIE",
+      "type": "cookies",
+      "price": 36,
+      "description": "Just the right decadent balance of fudgy, nutty and chewy\n\nMade with Gluten-Free ingredients",
+      "img": "https://sweetladyjane.com/wp-content/uploads/2019/12/SLJ_Flourless-Dark-Choc-Cookie_1200px-768x768.jpg",
+      "id": 22
+    },
+    {
+      "title": "CHOCOLATE CINNAMON RUGELACH",
+      "type": "cookies",
+      "price": 28,
+      "description": "Cream cheese pastry rolled with imported semi-sweet chocolate and cinnamon",
+      "img": "https://sweetladyjane.com/wp-content/uploads/2019/12/SLJ_Chocolate_Cinnamon_Rugelach_1200px-300x300.jpg",
+      "id": 23
+    },
+    {
+      "title": "RASPBERRY WALNUT RUGELACH",
+      "type": "cookies",
+      "price": 30,
+      "description": "Cream cheese pastry rolled with raspberry jam, raisins, walnuts and cinnamon",
+      "img": "https://sweetladyjane.com/wp-content/uploads/2019/12/SLJ_Rasberry-Walnut-Rugelach_1200px-300x300.jpg",
+      "id": 24
+    },
+    {
+      "title": "THE TREAT BOX",
+      "type": "cookies",
+      "price": 20,
+      "description": "The perfect bring-along! An assortment of lemon bars, sea salt brownies, oatmeal date bars, chocolate chip and chocolate chip cherry cookies.",
+      "img": "https://sweetladyjane.com/wp-content/uploads/2020/08/SLJ_Treat-Box_1200px-768x768.jpg",
+      "id": 25
+    },
+    {
+      "title": "COCONUT MACAROON",
+      "type": "cookies",
+      "price": 22,
+      "description": "A golden mound of sweet shredded coconut and ground almonds\n\nMade with Gluten-Free ingredients",
+      "img": "https://sweetladyjane.com/wp-content/uploads/2019/12/SLJ_Coconut-Macaroons-768x768.jpg",
+      "id": 26
+    },
+    {
+      "title": "DARK CHOCOLATE COCONUT MACAROON",
+      "type": "cookies",
+      "price": 48,
+      "description": "A golden mound of sweet shredded coconut and ground almonds dipped in dark chocolate\n\nMade with Gluten-Free ingredients",
+      "img": "https://sweetladyjane.com/wp-content/uploads/2019/12/SLJ_Dark-Chocolate-Macaroons-300x300.jpg",
+      "id": 27
+    }
+  ]
 }

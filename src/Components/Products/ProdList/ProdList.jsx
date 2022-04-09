@@ -6,6 +6,7 @@ import { useSearchParams } from "react-router-dom";
 import { PRODUCTS_LIMIT } from "../../../Helpers/consts";
 // import Spinner from "../../Spinner/Spinner";
 import Filter from "../Filter/Filter";
+import { Box } from "@mui/material";
 
 const maxSliderValue = 200;
 const minSliderValue = 1;
@@ -78,7 +79,7 @@ const ProdList = () => {
   };
 
   return (
-    <div>
+    <>
       <Filter
         setPage={setPage}
         type={type}
@@ -106,7 +107,7 @@ const ProdList = () => {
           page={page}
         />
       </div>
-    </div>
+    </>
   );
 };
 

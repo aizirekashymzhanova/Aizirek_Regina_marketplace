@@ -10,7 +10,7 @@ export const CART = {
   GET_CART: "GET_CART",
 };
 
-export const PRODUCTS_LIMIT = 6;
+export const PRODUCTS_LIMIT = 3;
 
 // Auth
 export const ADMIN_EMAIL = "admin@gmail.com";

@@ -79,7 +79,7 @@ const ProdList = () => {
   };
 
   return (
-    <div>
+    <>
       <Filter
         setPage={setPage}
         type={type}
@@ -107,7 +107,7 @@ const ProdList = () => {
           page={page}
         />
       </div>
-    </div>
+    </>
   );
 };
 

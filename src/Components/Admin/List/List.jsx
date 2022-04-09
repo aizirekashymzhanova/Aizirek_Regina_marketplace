@@ -13,6 +13,7 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import EditIcon from "@mui/icons-material/Edit";
 import { Link } from "react-router-dom";
 import "./List.css";
+import MySkeleton from "../../Skeleton/MySkeleton";
 
 const List = () => {
   const { products, getProducts, deleteProduct } = useProductContext();
@@ -88,7 +89,7 @@ const List = () => {
           </Table>
         </TableContainer>
       ) : (
-        <h2>hello</h2>
+        <MySkeleton />
       )}
     </div>
   );

@@ -212,7 +212,11 @@ export default function PrimarySearchAppBar() {
               component={NavLink}
               to="/"
             >
-              HOME
+              <img
+                src="https://media.istockphoto.com/vectors/letter-ar-logo-design-for-business-and-company-identity-ar-letter-vector-id1327686573?k=20&m=1327686573&s=170667a&w=0&h=X6lacIn0Ed6yNm3d9TH86f0lpwcxP16vYLIPRF1JHKA="
+                alt=""
+                width="50px"
+              />
             </Button>
           </IconButton>
 

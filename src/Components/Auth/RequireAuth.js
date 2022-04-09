@@ -1,6 +1,6 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-import { useAuth } from "../../contexts/AuthContextProvider";
+import { useAuth } from "../../Context/AuthContextProvider";
 
 const RequireAuth = ({ children }) => {
   let { currentUser } = useAuth();

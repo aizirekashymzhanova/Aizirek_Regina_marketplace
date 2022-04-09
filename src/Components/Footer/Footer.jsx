@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Footer.css";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -31,22 +31,21 @@ const Footer = () => {
           </ListItemButton>
         </Box>
         <Box className="footer-inside" align="center">
-          <IconButton>
+          <IconButton color="inherit">
             <InstagramIcon />
           </IconButton>
-          <IconButton>
+          <IconButton color="inherit">
             <FacebookIcon />
           </IconButton>
-          <IconButton>
+          <IconButton color="inherit">
             <PinterestIcon />
           </IconButton>
-          <IconButton>
+          <IconButton color="inherit">
             <TwitterIcon />
           </IconButton>
         </Box>
         <Typography>
-          ©2022 Sweet Lady Jane. All Rights Reserved. | Website by A & R
-          Creative
+          ©2022 Sweet Lady Jane. All Rights Reserved. Website by A & R Creative
         </Typography>
       </Container>
     </div>

@@ -10,13 +10,14 @@ import Add from "./Components/Admin/Add/Add";
 import Edit from "./Components/Admin/Edit/Edit";
 import Cart from "./Pages/Cart";
 import Location from "./Pages/Location";
-import Order from "./Pages/Order";
+
 import PaymentForm from "./Pages/Payment";
 // import Register from "./pages/Register";
 // import Login from "./pages/Login";
 // import RequireAuth from "./Components/Auth/RequireAuth";
 // import NoMatch from "./pages/NoMatch";
-// import ProdDetail from "./pages/ProdDetail";
+import ProdDetail from "./Pages/ProdDetail";
+import Feedbacks from "./Pages/Feedbacks";
 
 const MyRoutes = () => {
   return (
@@ -25,11 +26,10 @@ const MyRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/cart" element={<Cart />} />
-
         <Route path="/products" element={<Products />} />
-        <Route path="/order" element={<Order />} />
         <Route path="/payment" element={<PaymentForm />} />
-
+        <Route path="/feedbacks" element={<Feedbacks />} />
+        <Route path="/products/detail/:prodId" element={<ProdDetail />} />
         <Route path="/local" element={<Location />} />
         <Route path="/admin" element={<Admin />}>
           <Route index element={<List />} />

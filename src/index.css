@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(252, 245, 216);
 }
 
 code {
@@ -18,4 +19,8 @@ code {
 .home-p {
   font-size: 2em;
   text-align: center;
+}
+.one-card {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
+    rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }

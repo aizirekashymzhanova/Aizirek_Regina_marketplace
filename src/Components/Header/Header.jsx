@@ -40,23 +40,25 @@ const Header = () => {
           />
         </div>
       </AwesomeSlider>
-      <Container>
-        <Typography className="home-p" mt="50px" variant="h5" align="center">
-          At Sweet Lady Jane we break our own eggs, peel our own apples, roll
-          our own pastry, and squeeze our own lemons. We use the finest fair
-          trade chocolate, the freshest butter and cream, the highest quality
-          in-season fruit, and no preservatives.
-        </Typography>
-        <Typography
-          className="home-p"
-          color="red"
-          variant="h5"
-          mt="20px"
-          align="center"
-        >
-          Our mission is simple – we make good things even better.
-        </Typography>
-      </Container>
+      <Box sx={{ backgroundColor: "white" }}>
+        <Container>
+          <Typography className="home-p" mt="50px" variant="h5" align="center">
+            At Sweet Lady Jane we break our own eggs, peel our own apples, roll
+            our own pastry, and squeeze our own lemons. We use the finest fair
+            trade chocolate, the freshest butter and cream, the highest quality
+            in-season fruit, and no preservatives.
+          </Typography>
+          <Typography
+            className="home-p"
+            color="red"
+            variant="h5"
+            mt="20px"
+            align="center"
+          >
+            Our mission is simple – we make good things even better.
+          </Typography>
+        </Container>
+      </Box>
       <Grid container spacing={0}>
         <Grid
           item
@@ -297,107 +299,110 @@ const Header = () => {
           />
         </Grid>
       </Grid>
-      <Grid item xs={12} md={6}>
-        <Typography
-          placement="bottom"
-          variant="body1"
-          component="div"
-          align="center"
-          sx={{
-            height: "100%",
-            fontSize: "23px",
-          }}
-        >
+      <Box sx={{ backgroundColor: "white" }}>
+        <Grid item xs={12} md={6}>
           <Typography
-            style={{
-              fontWeight: "bold",
-              fontSize: "30px",
-              paddingTop: "80px",
-            }}
-          >
-            Customer Faves
-          </Typography>
-          <Typography
-            style={{
+            placement="bottom"
+            variant="body1"
+            component="div"
+            align="center"
+            sx={{
+              height: "100%",
               fontSize: "23px",
-              padding: "5px 0 20px 0",
             }}
           >
-            You can’t go wrong with these bestsellers and seasonal specialties!
+            <Typography
+              style={{
+                fontWeight: "bold",
+                fontSize: "30px",
+                paddingTop: "80px",
+              }}
+            >
+              Customer Faves
+            </Typography>
+            <Typography
+              style={{
+                fontSize: "23px",
+                padding: "5px 0 20px 0",
+              }}
+            >
+              You can’t go wrong with these bestsellers and seasonal
+              specialties!
+            </Typography>
           </Typography>
-        </Typography>
-      </Grid>
-      <Grid container spacing={4} sx={{ textAlign: "center" }}>
-        <Grid item xs={12} md={3}>
-          <img
-            width="100%"
-            src="https://sweetladyjane.com/wp-content/uploads/2019/12/SLJ_Choc-Cake_6in_1200px-300x300.jpg"
-            alt=""
-          />
-          <Button
-            style={{
-              fontWeight: "bold",
-              fontSize: "16px",
-              margin: "10px",
-              color: "black",
-            }}
-          >
-            DARK CHOCOLATE CAKE
-          </Button>
         </Grid>
+        <Grid container spacing={4} mb="40px" sx={{ textAlign: "center" }}>
+          <Grid item xs={12} md={3}>
+            <img
+              width="100%"
+              src="https://sweetladyjane.com/wp-content/uploads/2019/12/SLJ_Choc-Cake_6in_1200px-300x300.jpg"
+              alt=""
+            />
+            <Button
+              style={{
+                fontWeight: "bold",
+                fontSize: "16px",
+                margin: "10px",
+                color: "black",
+              }}
+            >
+              DARK CHOCOLATE CAKE
+            </Button>
+          </Grid>
 
-        <Grid item xs={12} md={3}>
-          <img
-            width="100%"
-            src="https://sweetladyjane.com/wp-content/uploads/2020/05/SLJ_Apple-Pie_6_inch-300x300.jpg"
-            alt=""
-          />
-          <Button
-            style={{
-              fontWeight: "bold",
-              fontSize: "16px",
-              margin: "10px",
-              color: "black",
-            }}
-          >
-            APPLE PIE
-          </Button>
+          <Grid item xs={12} md={3}>
+            <img
+              width="100%"
+              src="https://sweetladyjane.com/wp-content/uploads/2020/05/SLJ_Apple-Pie_6_inch-300x300.jpg"
+              alt=""
+            />
+            <Button
+              style={{
+                fontWeight: "bold",
+                fontSize: "16px",
+                margin: "10px",
+                color: "black",
+              }}
+            >
+              APPLE PIE
+            </Button>
+          </Grid>
+          <Grid item xs={12} md={3}>
+            <img
+              width="100%"
+              src="https://sweetladyjane.com/wp-content/uploads/2020/08/SLJ_Treat-Box_1200px-300x300.jpg"
+              alt=""
+            />
+            <Button
+              style={{
+                fontWeight: "bold",
+                fontSize: "16px",
+                margin: "10px",
+                color: "black",
+              }}
+            >
+              THE TREAT BOX
+            </Button>
+          </Grid>
+          <Grid item xs={12} md={3}>
+            <img
+              width="100%"
+              src="https://sweetladyjane.com/wp-content/uploads/2021/05/SLJ_Berrymisu-Jar_1200px-300x300.jpg"
+              alt=""
+            />
+            <Button
+              style={{
+                fontWeight: "bold",
+                fontSize: "16px",
+                margin: "10px",
+                color: "black",
+              }}
+            >
+              BERRYMISU JAR
+            </Button>
+          </Grid>
         </Grid>
-        <Grid item xs={12} md={3}>
-          <img
-            width="100%"
-            src="https://sweetladyjane.com/wp-content/uploads/2020/08/SLJ_Treat-Box_1200px-300x300.jpg"
-            alt=""
-          />
-          <Button
-            style={{
-              fontWeight: "bold",
-              fontSize: "16px",
-              margin: "10px",
-              color: "black",
-            }}
-          >
-            THE TREAT BOX
-          </Button>
-        </Grid>
-        <Grid item xs={12} md={3}>
-          <img
-            width="100%"
-            src="https://sweetladyjane.com/wp-content/uploads/2021/05/SLJ_Berrymisu-Jar_1200px-300x300.jpg"
-            alt=""
-          />
-          <Button
-            style={{
-              fontWeight: "bold",
-              fontSize: "16px",
-              margin: "10px",
-              color: "black",
-            }}
-          >
-            BERRYMISU JAR
-          </Button>
-        </Grid>
-      </Grid>
+      </Box>
       <Grid container spacing={0}>
         <Grid
           item
@@ -476,7 +481,7 @@ const Header = () => {
         </Grid>
       </Grid>
       <Grid container spacing={0}>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={6} sx={{ backgroundColor: "white" }}>
           <Typography
             placement="bottom"
             variant="body1"
@@ -560,7 +565,7 @@ const Header = () => {
           />
         </Grid>
       </Grid>
-      <Box style={{ backgroundColor: "#faf8e3", paddingBottom: "30px" }}>
+      <Box style={{ backgroundColor: "#faf8e3", paddingBottom: "50px" }}>
         <Box display="flex" alignItems="center" m="25px 10px">
           <img
             width="8%"
@@ -643,21 +648,22 @@ const Header = () => {
           </Grid>
         </Grid>
       </Box>
-
-      <Container>
-        <Typography variant="h5" align="center" m="50px">
-          Come visit us at one of our neighborhood bakeries.
-        </Typography>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2923.7891933950223!2d74.58995091546709!3d42.87729341027228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389ec98281e85c63%3A0x305e5b2a69cb4fcb!2sMakers%20Studio!5e0!3m2!1sru!2skg!4v1649415754983!5m2!1sru!2skg"
-          width="100%"
-          height="300"
-          style={{ border: "0px" }}
-          allowFullScreen=""
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
-      </Container>
+      <Box sx={{ backgroundColor: "white" }}>
+        <Container>
+          <Typography variant="h5" align="center" m="50px">
+            Come visit us at one of our neighborhood bakeries.
+          </Typography>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2923.7891933950223!2d74.58995091546709!3d42.87729341027228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389ec98281e85c63%3A0x305e5b2a69cb4fcb!2sMakers%20Studio!5e0!3m2!1sru!2skg!4v1649415754983!5m2!1sru!2skg"
+            width="100%"
+            height="300"
+            style={{ border: "0px" }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </Container>
+      </Box>
     </>
   );
 };

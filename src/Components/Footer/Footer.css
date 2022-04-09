@@ -5,6 +5,7 @@
   text-align: center;
   align-items: center;
   display: flex;
+  padding: 20px;
 }
 
 .footer-inside {

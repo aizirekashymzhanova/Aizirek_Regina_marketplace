@@ -118,7 +118,7 @@ const Cart = () => {
             <Button
               variant="contained"
               color="warning"
-              onClick={() => navigate("/order")}
+              onClick={() => navigate("/payment")}
             >
               BUY NOW FOR ${cart.totalPrice}
             </Button>

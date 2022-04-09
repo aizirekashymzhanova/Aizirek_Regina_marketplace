@@ -6,7 +6,7 @@ import { useSearchParams } from "react-router-dom";
 import { PRODUCTS_LIMIT } from "../../../Helpers/consts";
 // import Spinner from "../../Spinner/Spinner";
 import Filter from "../Filter/Filter";
-import { Box } from "@mui/material";
+import MySkeleton from "../../Skeleton/MySkeleton";
 
 const maxSliderValue = 200;
 const minSliderValue = 1;
@@ -95,7 +95,7 @@ const ProdList = () => {
         {products && products.length > 0 ? (
           products.map((item) => <OneProduct key={item.id} item={item} />)
         ) : (
-          <h2>Hello</h2>
+          <MySkeleton />
         )}
       </Grid>
       <div style={{ margin: "50px 0", textAlign: "center" }}>

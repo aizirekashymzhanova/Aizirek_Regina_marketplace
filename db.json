@@ -195,18 +195,10 @@
     {
       "title": "DARK CHOCOLATE COCONUT MACAROON",
       "type": "cookies",
-      "price": 48,
+      "price": 50,
       "description": "A golden mound of sweet shredded coconut and ground almonds dipped in dark chocolate\n\nMade with Gluten-Free ingredients",
       "img": "https://sweetladyjane.com/wp-content/uploads/2019/12/SLJ_Dark-Chocolate-Macaroons-300x300.jpg",
       "id": 27
-    },
-    {
-      "title": "r",
-      "type": "CheeseCakes",
-      "price": null,
-      "description": "r",
-      "img": "r",
-      "id": 28
     }
   ]
 }

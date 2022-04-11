@@ -4,6 +4,7 @@ import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
 import Typography from "@mui/material/Typography";
 import { width } from "@mui/system";
+import "./Header.css";
 
 const Header = () => {
   return (
@@ -122,7 +123,11 @@ const Header = () => {
             >
               PLEASE NOTE: Available for pick up April 15-17 only!
             </Typography>
-            <Button variant="outlined" style={{ margin: "30px 0" }}>
+            <Button
+              className="btn"
+              variant="outlined"
+              style={{ margin: "30px 0" }}
+            >
               PRE-ORDER TODAY
             </Button>
           </Typography>
@@ -159,7 +164,11 @@ const Header = () => {
             >
               We’re happy to announce the Brownie Cheesecake is back!
             </Typography>
-            <Button variant="outlined" style={{ margin: "30px 0" }}>
+            <Button
+              className="btn"
+              variant="outlined"
+              style={{ margin: "30px 0" }}
+            >
               PRE-ORDER TODAY
             </Button>
           </Typography>
@@ -239,7 +248,11 @@ const Header = () => {
             >
               We also make a Chocolate version and a Triple Berry Cheesecake!
             </Typography>
-            <Button variant="outlined" style={{ margin: "30px 0" }}>
+            <Button
+              className="btn"
+              variant="outlined"
+              style={{ margin: "30px 0" }}
+            >
               PRE-ORDER TODAY
             </Button>
           </Typography>
@@ -277,11 +290,17 @@ const Header = () => {
               Our latest creation, in celebration of our new bakery in Beverly
               Hills!
             </Typography>
-            <Button variant="outlined" style={{ margin: "30px 0" }}>
+            <Button
+              className="btn"
+              variant="outlined"
+              style={{ margin: "30px 0" }}
+            >
               TRY OUR NEW CAKE
             </Button>
             <br />
-            <Button variant="outlined">FIND LOCATION</Button>
+            <Button className="btn" variant="outlined">
+              FIND LOCATION
+            </Button>
           </Typography>
         </Grid>
         <Grid
@@ -449,7 +468,11 @@ const Header = () => {
               Need a dessert right now? See what’s available at our shops for
               pick up or delivery.
             </Typography>
-            <Button variant="outlined" style={{ margin: "30px 0" }}>
+            <Button
+              className="btn"
+              variant="outlined"
+              style={{ margin: "30px 0" }}
+            >
               SHOP NOW
             </Button>
             <Typography

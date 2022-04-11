@@ -7,9 +7,9 @@ import { useLocation, useSearchParams } from "react-router-dom";
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  backgroundColor: alpha(theme.palette.common.black, 0.15),
   "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+    backgroundColor: alpha(theme.palette.common.black, 0.25),
   },
   marginRight: theme.spacing(2),
   marginLeft: 0,
@@ -48,14 +48,15 @@ const LiveSearch = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const location = useLocation();
-  // console.log(location);
+  console.log(location);
 
   const [inpSearch, setInpSearch] = useState(searchParams.get("q") || "");
+  console.log(inpSearch);
 
   useEffect(() => {
     let currentParams = Object.fromEntries([...searchParams]);
 
-    if (location.pathname === "/product") {
+    if (location.pathname === "/products") {
       setSearchParams({
         ...currentParams,
         _page: 1,
@@ -63,13 +64,6 @@ const LiveSearch = () => {
       });
     }
   }, [inpSearch]);
-
-  // чтобы очищался инпут при сбросе данных
-  // useEffect(() => {
-  //   if (searchParams.get("q") !== inpSearch) {
-  //     setInpSearch(searchParams.get("q") || "");
-  //   }
-  // }, []);
 
   return (
     <Search>

@@ -9,6 +9,9 @@ export const CART = {
   GET_CART_LENGTH: "GET_CART_LENGTH",
   GET_CART: "GET_CART",
 };
+export const FAV = {
+  GET_FAV: "GET_FAV",
+};
 
 export const PRODUCTS_LIMIT = 3;
 

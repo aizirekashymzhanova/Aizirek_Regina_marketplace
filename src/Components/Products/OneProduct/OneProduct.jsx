@@ -15,14 +15,20 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import MapsUgcIcon from "@mui/icons-material/MapsUgc";
 import Checkbox from "@mui/material/Checkbox";
-import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
+
 import BookmarkIcon from "@mui/icons-material/Bookmark";
+import { useAuth } from "../../../Context/AuthContextProvider";
+import { notify } from "../../Tostify/Toastify";
+import { useFavorite } from "../../../Context/FavoriteContextProvider";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 export default function OneProduct({ item }) {
   const { addDelToCart, isProdInCart } = useCart();
+  const { addDelToFav, isProdInFav } = useFavorite();
   const [inCart, setInCart] = useState(isProdInCart(item.id));
+  const [inFav, setInFav] = useState(isProdInFav(item.id));
+  const { currentUser } = useAuth();
   const [like, setLike] = useState(false);
   const navigate = useNavigate();
   return (
@@ -45,15 +51,29 @@ export default function OneProduct({ item }) {
         </CardContent>
 
         <CardActions>
-          <IconButton
-            onClick={() => {
-              addDelToCart(item);
-              setInCart(isProdInCart(item.id));
-            }}
-            color={inCart ? "secondary" : "inherit"}
-          >
-            <ShoppingCartIcon />
-          </IconButton>
+          {currentUser.user === null ? (
+            <IconButton
+              onClick={() => {
+                notify(
+                  "error",
+                  "Dear Customer, please sign IN/UP to purchase."
+                );
+              }}
+              color="inherit"
+            >
+              <ShoppingCartIcon />
+            </IconButton>
+          ) : (
+            <IconButton
+              onClick={() => {
+                addDelToCart(item);
+                setInCart(isProdInCart(item.id));
+              }}
+              color={inCart ? "secondary" : "inherit"}
+            >
+              <ShoppingCartIcon />
+            </IconButton>
+          )}
           <IconButton color="inherit">
             <Checkbox
               {...label}
@@ -65,12 +85,14 @@ export default function OneProduct({ item }) {
           <IconButton color="inherit" onClick={() => navigate("/feedbacks")}>
             <MapsUgcIcon />
           </IconButton>
-          <IconButton color="inherit">
-            <Checkbox
-              {...label}
-              icon={<BookmarkBorderIcon />}
-              checkedIcon={<BookmarkIcon color="warning" />}
-            />
+          <IconButton
+            onClick={() => {
+              addDelToFav(item);
+              setInFav(isProdInFav(item.id));
+            }}
+            color={inFav ? "secondary" : "inherit"}
+          >
+            <BookmarkIcon />
           </IconButton>
           <Button component={Link} to={`detail/${item.id}`} size="small">
             <MoreHorizIcon color="inherit" />

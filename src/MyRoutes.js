@@ -17,6 +17,7 @@ import RequireAuth from "./Components/Auth/RequireAuth";
 import ProdDetail from "./Pages/ProdDetail";
 import Feedbacks from "./Pages/Feedbacks";
 import Error from "./Pages/Error.jsx";
+import Favorite from "./Pages/Favorite";
 
 const MyRoutes = () => {
   return (
@@ -25,6 +26,7 @@ const MyRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/favorite" element={<Favorite />} />
         <Route path="/products" element={<Products />} />
         <Route path="/payment" element={<PaymentForm />} />
         <Route path="/feedbacks" element={<Feedbacks />} />

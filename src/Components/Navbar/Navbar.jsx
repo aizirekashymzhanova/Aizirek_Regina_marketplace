@@ -9,11 +9,10 @@ import InputBase from "@mui/material/InputBase";
 import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import InfoIcon from "@mui/icons-material/Info";
 import MoreIcon from "@mui/icons-material/MoreVert";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
 import { Button } from "@mui/material";
 import { Link as RouterLink, NavLink } from "react-router-dom";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
@@ -124,38 +123,42 @@ export default function Navbar() {
     >
       <MenuItem>
         <NavLink to="/about" className="mobile-link">
-          <IconButton size="large" color="inherit"></IconButton>
+          <IconButton
+            size="large"
+            color="inherit"
+            onClick={handleMenuClose}
+          ></IconButton>
           <p>About</p>
         </NavLink>
       </MenuItem>
       <MenuItem>
         <NavLink to="/products" className="mobile-link">
-          <IconButton
-            size="large"
-            aria-label="show 4 new mails"
-            color="inherit"
-          ></IconButton>
+          <IconButton size="large" color="inherit"></IconButton>
           <p>Shop</p>
         </NavLink>
       </MenuItem>
       <MenuItem>
         <NavLink to="/feedbacks" className="mobile-link">
-          <IconButton
-            size="large"
-            aria-label="show 4 new mails"
-            color="inherit"
-          ></IconButton>
+          <IconButton size="large" color="inherit"></IconButton>
           <p>Feedbacks</p>
         </NavLink>
       </MenuItem>
       <MenuItem>
         <NavLink to="/local" className="mobile-link">
-          <IconButton
-            size="large"
-            aria-label="show 4 new mails"
-            color="inherit"
-          ></IconButton>
+          <IconButton size="large" color="inherit"></IconButton>
           <p>Location</p>
+        </NavLink>
+      </MenuItem>
+      <MenuItem>
+        <NavLink to="/cart" className="mobile-link">
+          <IconButton size="large" color="inherit"></IconButton>
+          <p>My Cart</p>
+        </NavLink>
+      </MenuItem>
+      <MenuItem>
+        <NavLink to="/favorite" className="mobile-link">
+          <IconButton size="large" color="inherit"></IconButton>
+          <p>My Favorites</p>
         </NavLink>
       </MenuItem>
       {currentUser?.isAdmin && (
@@ -204,17 +207,13 @@ export default function Navbar() {
               sx={{
                 my: 2,
                 color: "black",
-                display: "block",
+
                 fontSize: "14px",
               }}
               component={NavLink}
               to="/"
             >
-              <img
-                src="https://media.istockphoto.com/vectors/letter-ar-logo-design-for-business-and-company-identity-ar-letter-vector-id1327686573?k=20&m=1327686573&s=170667a&w=0&h=X6lacIn0Ed6yNm3d9TH86f0lpwcxP16vYLIPRF1JHKA="
-                alt=""
-                width="50px"
-              />
+              SJ Bakery
             </Button>
           </IconButton>
 
@@ -289,6 +288,16 @@ export default function Navbar() {
             )}
           </Box>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <RouterLink to="/favorite" style={{ color: "black" }}>
+              <IconButton
+                size="large"
+                edge="end"
+                aria-haspopup="true"
+                color="inherit"
+              >
+                <BookmarkIcon />
+              </IconButton>
+            </RouterLink>
             <RouterLink to="/cart" style={{ color: "black" }}>
               <IconButton
                 size="large"

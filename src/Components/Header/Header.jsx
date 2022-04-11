@@ -55,6 +55,7 @@ const Header = () => {
             color="red"
             variant="h5"
             mt="20px"
+            mb="20px"
             align="center"
           >
             Our mission is simple – we make good things even better.

@@ -48,10 +48,8 @@ const LiveSearch = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const location = useLocation();
-  console.log(location);
 
   const [inpSearch, setInpSearch] = useState(searchParams.get("q") || "");
-  console.log(inpSearch);
 
   useEffect(() => {
     let currentParams = Object.fromEntries([...searchParams]);

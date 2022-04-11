@@ -1,11 +1,11 @@
 import React from "react";
-import { styled, alpha } from "@mui/material/styles";
+
+import { Link as RouterLink, NavLink } from "react-router-dom";
+
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import InputBase from "@mui/material/InputBase";
 import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
@@ -13,21 +13,22 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import InfoIcon from "@mui/icons-material/Info";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
+import BookmarksIcon from "@mui/icons-material/Bookmarks";
 import { Button } from "@mui/material";
-import { Link as RouterLink, NavLink } from "react-router-dom";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+
 import "./Navbar.css";
 import LiveSearch from "../LiveSearch/LiveSearch";
-
 import { useCart } from "../../Context/CartContextProvider";
 import { useAuth } from "../../Context/AuthContextProvider";
+import { useFavorite } from "../../Context/FavoriteContextProvider";
 
 export default function Navbar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const { getCartLength, cartLength } = useCart();
-
+  const { fav } = useFavorite();
   const { currentUser, logOutUser } = useAuth();
 
   React.useEffect(() => {
@@ -295,7 +296,11 @@ export default function Navbar() {
                 aria-haspopup="true"
                 color="inherit"
               >
-                <BookmarkIcon />
+                {fav.products.length > 0 ? (
+                  <BookmarksIcon color="warning" />
+                ) : (
+                  <BookmarkIcon />
+                )}
               </IconButton>
             </RouterLink>
             <RouterLink to="/cart" style={{ color: "black" }}>

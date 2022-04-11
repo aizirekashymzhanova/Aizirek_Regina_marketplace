@@ -4,6 +4,7 @@ import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
 import Typography from "@mui/material/Typography";
 import { width } from "@mui/system";
+import Logo from "./Foto/lady-removebg-preview.png";
 import "./Header.css";
 
 const Header = () => {
@@ -592,7 +593,8 @@ const Header = () => {
         <Box display="flex" alignItems="center" m="25px 10px">
           <img
             width="8%"
-            src="https://o.remove.bg/downloads/9c488955-5d21-4893-bb64-6b60d744f089/lady-removebg-preview.png"
+            // src="https://o.remove.bg/downloads/9c488955-5d21-4893-bb64-6b60d744f089/lady-removebg-preview.png"
+            src={Logo}
             alt=""
           />
           <a

@@ -9,17 +9,18 @@ import InputBase from "@mui/material/InputBase";
 import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import MailIcon from "@mui/icons-material/Mail";
-import NotificationsIcon from "@mui/icons-material/Notifications";
+import InfoIcon from "@mui/icons-material/Info";
 import MoreIcon from "@mui/icons-material/MoreVert";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
 import { Button } from "@mui/material";
 import { Link as RouterLink, NavLink } from "react-router-dom";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import "./Navbar.css";
+import LiveSearch from "../LiveSearch/LiveSearch";
 import { useCart } from "../../Context/CartContextProvider";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
+import { useAuth } from "../../Context/AuthContextProvider";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -61,10 +62,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function PrimarySearchAppBar() {
+export default function Navbar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+
   const { getCartLength, cartLength } = useCart();
+
+  const { currentUser, logOutUser } = useAuth();
 
   React.useEffect(() => {
     getCartLength();
@@ -107,8 +111,36 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      {currentUser?.isLogged && (
+        <MenuItem onClick={handleMenuClose}>{currentUser?.user}</MenuItem>
+      )}
+
+      {currentUser?.isLogged && (
+        <MenuItem
+          onClick={() => {
+            handleMenuClose();
+            logOutUser();
+          }}
+        >
+          Log out
+        </MenuItem>
+      )}
+
+      {!currentUser?.isLogged && (
+        <MenuItem onClick={handleMenuClose}>
+          <NavLink to="/register" className="mobile-link">
+            Register
+          </NavLink>
+        </MenuItem>
+      )}
+
+      {!currentUser?.isLogged && (
+        <MenuItem onClick={handleMenuClose}>
+          <NavLink to="/login" className="mobile-link">
+            Login
+          </NavLink>
+        </MenuItem>
+      )}
     </Menu>
   );
 
@@ -131,50 +163,58 @@ export default function PrimarySearchAppBar() {
     >
       <MenuItem>
         <NavLink to="/about" className="mobile-link">
-          <IconButton size="large" color="inherit"></IconButton>
+          <IconButton
+            size="large"
+            color="inherit"
+            onClick={handleMenuClose}
+          ></IconButton>
           <p>About</p>
         </NavLink>
       </MenuItem>
       <MenuItem>
         <NavLink to="/products" className="mobile-link">
-          <IconButton
-            size="large"
-            aria-label="show 4 new mails"
-            color="inherit"
-          ></IconButton>
+          <IconButton size="large" color="inherit"></IconButton>
           <p>Shop</p>
         </NavLink>
       </MenuItem>
       <MenuItem>
         <NavLink to="/feedbacks" className="mobile-link">
-          <IconButton
-            size="large"
-            aria-label="show 4 new mails"
-            color="inherit"
-          ></IconButton>
+          <IconButton size="large" color="inherit"></IconButton>
           <p>Feedbacks</p>
         </NavLink>
       </MenuItem>
       <MenuItem>
         <NavLink to="/local" className="mobile-link">
-          <IconButton
-            size="large"
-            aria-label="show 4 new mails"
-            color="inherit"
-          ></IconButton>
+          <IconButton size="large" color="inherit"></IconButton>
           <p>Location</p>
         </NavLink>
       </MenuItem>
       <MenuItem>
-        <NavLink to="/admin" className="mobile-link">
-          <IconButton
-            size="large"
-            aria-label="show 4 new mails"
-            color="inherit"
-          ></IconButton>
-          <p>Admin</p>
+        <NavLink to="/cart" className="mobile-link">
+          <IconButton size="large" color="inherit"></IconButton>
+          <p>My Cart</p>
         </NavLink>
       </MenuItem>
+      <MenuItem>
+        <NavLink to="/favorite" className="mobile-link">
+          <IconButton size="large" color="inherit"></IconButton>
+          <p>My Favorites</p>
+        </NavLink>
+      </MenuItem>
+      {currentUser?.isAdmin && (
+        <MenuItem>
+          <NavLink to="/admin" className="mobile-link">
+            <IconButton
+              size="large"
+              aria-label="show 4 new mails"
+              color="inherit"
+            >
+              <InfoIcon />
+            </IconButton>
+            <p>Admin</p>
+          </NavLink>
+        </MenuItem>
+      )}
 
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
@@ -182,7 +222,8 @@ export default function PrimarySearchAppBar() {
           aria-label="account of current user"
           aria-controls="primary-search-account-menu"
           aria-haspopup="true"
-          color="inherit"
+          // color="inherit"
+          sx={{ color: currentUser?.isLogged ? "green" : "white" }}
         >
           <AccountCircle />
         </IconButton>
@@ -206,29 +247,20 @@ export default function PrimarySearchAppBar() {
               sx={{
                 my: 2,
                 color: "black",
-                display: "block",
+
                 fontSize: "14px",
               }}
               component={NavLink}
               to="/"
             >
-              <img
-                src="https://media.istockphoto.com/vectors/letter-ar-logo-design-for-business-and-company-identity-ar-letter-vector-id1327686573?k=20&m=1327686573&s=170667a&w=0&h=X6lacIn0Ed6yNm3d9TH86f0lpwcxP16vYLIPRF1JHKA="
-                alt=""
-                width="50px"
-              />
+              SJ Bakery
             </Button>
           </IconButton>
 
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
+          {/* Живой поиск */}
+          <LiveSearch />
+          {/* Живой поиск */}
+
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <Button
@@ -280,20 +312,32 @@ export default function PrimarySearchAppBar() {
             >
               LOCATION
             </Button>
-            <Button
-              sx={{
-                my: 2,
-                color: "black",
-                display: "block",
-                fontSize: "16px",
-              }}
-              component={NavLink}
-              to="/admin"
-            >
-              ADMIN
-            </Button>
+            {currentUser?.isAdmin && (
+              <Button
+                sx={{
+                  my: 2,
+                  color: "white",
+                  display: "block",
+                  fontSize: "16px",
+                }}
+                component={NavLink}
+                to="/admin"
+              >
+                ADMIN
+              </Button>
+            )}
           </Box>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            <RouterLink to="/favorite" style={{ color: "black" }}>
+              <IconButton
+                size="large"
+                edge="end"
+                aria-haspopup="true"
+                color="inherit"
+              >
+                <BookmarkIcon />
+              </IconButton>
+            </RouterLink>
             <RouterLink to="/cart" style={{ color: "black" }}>
               <IconButton
                 size="large"

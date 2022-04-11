@@ -30,8 +30,10 @@ function reducer(state = INIT_STATE, action) {
 }
 
 const CartContextProvider = ({ children }) => {
+  // Hook useReducer to control the state of cart
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
+  //Checks LS , if it is empty sets empty array with key products
   function createCartFromLS() {
     let cart = JSON.parse(localStorage.getItem("cart"));
 
@@ -44,7 +46,7 @@ const CartContextProvider = ({ children }) => {
     }
     return cart;
   }
-  //add and delete
+  //add and delete product to/from cart (icon color)
   const addDelToCart = (prod) => {
     let cart = createCartFromLS();
     let newProd = {
@@ -63,7 +65,7 @@ const CartContextProvider = ({ children }) => {
     } else {
       cart.products.push(newProd);
     }
-
+    // Total price of products in cart
     cart.totalPrice = calcTotalPrice(cart.products);
     localStorage.setItem("cart", JSON.stringify(cart));
     getCartLength();
@@ -72,6 +74,8 @@ const CartContextProvider = ({ children }) => {
       payload: cart,
     });
   };
+
+  //get  quantity of products in cart
   const getCartLength = () => {
     let cart = createCartFromLS();
     dispatch({
@@ -79,7 +83,7 @@ const CartContextProvider = ({ children }) => {
       payload: cart.products.length,
     });
   };
-
+  //Checks if product is in cart
   const isProdInCart = (id) => {
     let cart = createCartFromLS();
     let exist = cart.products.some((obj) => {
@@ -87,6 +91,8 @@ const CartContextProvider = ({ children }) => {
     });
     return exist;
   };
+
+  // render of Cart
   const getCart = () => {
     let cart = createCartFromLS();
     dispatch({
@@ -94,7 +100,7 @@ const CartContextProvider = ({ children }) => {
       payload: cart,
     });
   };
-
+  //+count- for one product
   const changeProductCount = (newCount, id) => {
     let cart = createCartFromLS();
     cart.products = cart.products.map((elem) => {
@@ -108,7 +114,7 @@ const CartContextProvider = ({ children }) => {
     localStorage.setItem("cart", JSON.stringify(cart));
     getCart();
   };
-
+  // Deletes product from cart .
   const deleteProdInCart = (id) => {
     let cart = createCartFromLS();
     cart.products = cart.products.filter((elem) => {

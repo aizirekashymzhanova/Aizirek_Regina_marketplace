@@ -9,18 +9,18 @@ import Typography from "@mui/material/Typography";
 
 const About = () => {
   return (
-    <>
+    <Box sx={{ backgroundColor: "white" }}>
       <Container>
         <Typography
           variant="h4"
           component="div"
           align="center"
-          m="50px"
+          mt="50px"
           color="darkred"
         >
           OUR STORY
         </Typography>
-        <Grid container spacing={2}>
+        <Grid container spacing={2} m="50px 0">
           <Grid item xs={12} md={8} sx={{ textAlign: "left" }}>
             <Typography variant="h6" component="div" mt="50px">
               When Jane Lockhart and her husband Donald were dating, he’d often
@@ -47,10 +47,14 @@ const About = () => {
         </Grid>
       </Container>
       <Box>
-        <img src="" alt="" />
+        <img
+          width="100%"
+          src="https://static.espreso.tv/uploads/article/2839903/images/im-aple_gettyimages.png"
+          alt=""
+        />
       </Box>
       <Container>
-        <Typography variant="h6" component="div" mt="50px">
+        <Typography variant="h6" component="div" m="50px 0">
           Ever since then, Sweet Lady Jane has been a part of family traditions,
           intimate friendly gatherings and the most exclusive celebrations. Our
           signature Triple Berry cake is known around the world and ordered
@@ -67,7 +71,14 @@ const About = () => {
           Thank you for being our customer.
         </Typography>
       </Container>
-    </>
+      <Box>
+        <img
+          width="100%"
+          src="https://sweetladyjane.com/wp-content/uploads/2021/12/SLJ_CategoryHeader_Cakes_1700x1133.jpg"
+          alt=""
+        />
+      </Box>
+    </Box>
   );
 };
 

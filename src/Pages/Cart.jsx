@@ -24,9 +24,6 @@ const Cart = () => {
   useEffect(() => {
     getCart();
   }, []);
-  const handleOrder = () => {
-    navigate("/order");
-  };
 
   return (
     <div style={{ textAlign: "center" }}>

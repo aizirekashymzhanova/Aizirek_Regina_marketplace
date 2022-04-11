@@ -5,7 +5,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import Slider from "@mui/material/Slider";
-import { Button, Typography } from "@mui/material";
+import { Button, MenuItem, Typography } from "@mui/material";
 
 const Filter = ({
   type,
@@ -20,13 +20,14 @@ const Filter = ({
   return (
     <div style={{ textAlign: "center" }}>
       <h1>Filter</h1>
+
       <FormControl>
         <FormLabel id="demo-radio-buttons-group-label">Type</FormLabel>
         <RadioGroup
           aria-labelledby="demo-radio-buttons-group-label"
           defaultValue="female"
           name="radio-buttons-group"
-          style={{ display: "flex" }}
+          style={{ display: "flex", flexDirection: "row" }}
           value={type}
           onChange={(e) => {
             setType(e.target.value);

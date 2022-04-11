@@ -1,7 +1,20 @@
 import React from "react";
+import AuthForm from "../Components/Auth/AuthForm";
+import { useAuth } from "../Context/AuthContextProvider";
 
 const Register = () => {
-  return <div></div>;
+  const { registerUser } = useAuth();
+  return (
+    <div>
+      <AuthForm
+        title={"Register"}
+        btnText={"Register"}
+        link={"/login"}
+        linkText={"Already have an accoun? Login"}
+        handleSave={registerUser}
+      />
+    </div>
+  );
 };
 
 export default Register;

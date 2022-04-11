@@ -34,6 +34,7 @@ function reducer(state = INIT_STATE, action) {
 }
 
 const ProductContextProvider = ({ children }) => {
+  // Hook useReducer to control the state of product
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
   const navigate = useNavigate();
 
@@ -72,6 +73,8 @@ const ProductContextProvider = ({ children }) => {
   };
 
   //Edit product
+
+  //gets the product which should be edited
   const getOneProduct = async (id) => {
     try {
       let { data } = await axios(`${API}/${id}`);
@@ -83,7 +86,7 @@ const ProductContextProvider = ({ children }) => {
       notifyError(err);
     }
   };
-
+  //saves edited product
   const saveEditedProd = async (editedProd) => {
     try {
       let res = await axios.patch(`${API}/${editedProd.id}`, editedProd);
@@ -100,7 +103,7 @@ const ProductContextProvider = ({ children }) => {
       value={{
         products: state.products,
         oneProd: state.oneProd,
-        pageTotalCount: state.pageTotalCount,
+        pageTotalCount: +state.pageTotalCount,
         getProducts,
         addProduct,
         deleteProduct,

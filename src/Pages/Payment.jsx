@@ -44,7 +44,7 @@ export default function App() {
   const style = {
     position: "absolute",
     top: "50%",
-    left: "50%",
+    // left: "50%",
     transform: "translate(-50%, -50%)",
     width: 400,
     bgcolor: "background.paper",
@@ -56,11 +56,12 @@ export default function App() {
   return (
     <div
       style={{
+
         paddingTop: "10px",
         paddingBottom: "10px",
         margin: "auto",
         textAlign: "center",
-      }}
+
     >
       <Card className="card" />
       <form

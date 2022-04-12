@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import {
   CardHolder,
   CardNumber,
@@ -5,21 +7,40 @@ import {
   ValidThruMonth,
   ValidThruYear,
 } from "reactjs-credit-card/form";
+
 import Card from "reactjs-credit-card/card";
-import { notify } from "../Components/Tostify/Toastify";
-import { useNavigate } from "react-router-dom";
-import { useCart } from "../Context/CartContextProvider";
+
 import { Button, TextField } from "@mui/material";
-import { maxWidth } from "@mui/system";
+
+import { notify } from "../Components/Tostify/Toastify";
+import { useCart } from "../Context/CartContextProvider";
+import { useState } from "react";
 
 export default function App() {
   const navigate = useNavigate();
   const { getCartLength, cart } = useCart();
+  const [textValues, SetTextValues] = useState({
+    name: "",
+    num: "",
+    cvv: "",
+  });
+
+  const handleChange = (event) => {
+    let per = { ...textValues, [event.target.name]: event.target.value };
+    SetTextValues(per);
+  };
+
   const handlePay = () => {
-    notify("success", "Dear customer, thanks for your shopping! ");
-    localStorage.clear();
-    getCartLength();
-    navigate("/");
+    console.log(textValues);
+
+    if (!textValues.name || !textValues.cvv || !textValues.num) {
+      notify("error", "Fill all the blanks");
+    } else {
+      notify("success", "Dear customer, thanks for your shopping! ");
+      localStorage.clear();
+      getCartLength();
+      navigate("/");
+    }
   };
 
   const style = {
@@ -57,16 +78,32 @@ export default function App() {
         />{" "}
         <TextField id="standard-basic" label="Address" variant="standard" />{" "}
         <br />
-        <CardNumber placeholder="Card Number" className="payment-inp" /> <br />
-        <CardHolder placeholder="Card Holder" className="payment-inp" />
+        <CardNumber
+          name="num"
+          onChange={handleChange}
+          placeholder="Card Number"
+          className="payment-inp"
+          value={textValues.num}
+        />{" "}
+        <br />
+        <CardHolder
+          name="name"
+          onChange={handleChange}
+          placeholder="Card Holder"
+          className="payment-inp"
+          value={textValues.name}
+        />
         <br />
         <div style={{ display: "flex" }}>
           <ValidThruMonth />
           <ValidThruYear className="payment-inp" />
 
           <CardSecurityCode
+            name="cvv"
+            onChange={handleChange}
             placeholder="CVV"
             className="input-text semi payment-inp"
+            value={textValues.cvv}
           />
         </div>
         <br />

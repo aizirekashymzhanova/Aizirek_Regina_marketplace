@@ -23,6 +23,7 @@ import { useCart } from "../../../Context/CartContextProvider";
 import { useAuth } from "../../../Context/AuthContextProvider";
 import { notify } from "../../Tostify/Toastify";
 import { useFavorite } from "../../../Context/FavoriteContextProvider";
+import Like from "../../Header/Like/Like";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -32,7 +33,16 @@ export default function OneProduct({ item }) {
   const [inCart, setInCart] = useState(isProdInCart(item.id));
   const [inFav, setInFav] = useState(isProdInFav(item.id));
   const { currentUser } = useAuth();
+
   const navigate = useNavigate();
+
+  const [like, setLike] = useState(0);
+  function increment() {
+    setLike((prevState) => prevState + 1);
+  }
+  function decrement() {
+    setLike((prevState) => prevState - 1);
+  }
   return (
     <Grid item xs={12} sm={6} md={4}>
       <Card sx={{ maxWidth: 345, height4: 500 }} className="one-card">
@@ -76,13 +86,7 @@ export default function OneProduct({ item }) {
               <ShoppingCartIcon />
             </IconButton>
           )}
-          <IconButton color="inherit">
-            <Checkbox
-              {...label}
-              icon={<FavoriteBorderIcon />}
-              checkedIcon={<FavoriteIcon color="warning" />}
-            />
-          </IconButton>
+
           <IconButton color="inherit" onClick={() => navigate("/feedbacks")}>
             <MapsUgcIcon />
           </IconButton>
@@ -110,6 +114,14 @@ export default function OneProduct({ item }) {
               {inFav ? <BookmarkRemoveIcon /> : <BookmarkAddIcon />}
             </IconButton>
           )}
+          <IconButton color="inherit" onClick={increment}>
+            <Checkbox
+              {...label}
+              icon={<FavoriteBorderIcon />}
+              checkedIcon={<FavoriteIcon color="warning" />}
+            />
+            {like}
+          </IconButton>
           <Button component={Link} to={`detail/${item.id}`} size="small">
             <MoreHorizIcon color="inherit" />
           </Button>

@@ -1,11 +1,14 @@
-import { Box, Button, Container, Grid, IconButton } from "@mui/material";
 import React from "react";
+
 import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
+
+import { Box, Button, Container, Grid } from "@mui/material";
 import Typography from "@mui/material/Typography";
-import { width } from "@mui/system";
+
 import Logo from "./Foto/lady-removebg-preview.png";
 import "./Header.css";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -125,13 +128,15 @@ const Header = () => {
             >
               PLEASE NOTE: Available for pick up April 15-17 only!
             </Typography>
-            <Button
-              className="btn"
-              variant="outlined"
-              style={{ margin: "30px 0" }}
-            >
-              PRE-ORDER TODAY
-            </Button>
+            <Link to="/products">
+              <Button
+                className="btn"
+                variant="outlined"
+                style={{ margin: "30px 0" }}
+              >
+                PRE-ORDER TODAY
+              </Button>
+            </Link>
           </Typography>
         </Grid>
       </Grid>
@@ -166,13 +171,15 @@ const Header = () => {
             >
               We’re happy to announce the Brownie Cheesecake is back!
             </Typography>
-            <Button
-              className="btn"
-              variant="outlined"
-              style={{ margin: "30px 0" }}
-            >
-              PRE-ORDER TODAY
-            </Button>
+            <Link to="/products">
+              <Button
+                className="btn"
+                variant="outlined"
+                style={{ margin: "30px 0" }}
+              >
+                PRE-ORDER TODAY
+              </Button>
+            </Link>
           </Typography>
         </Grid>
         <Grid
@@ -250,13 +257,15 @@ const Header = () => {
             >
               We also make a Chocolate version and a Triple Berry Cheesecake!
             </Typography>
-            <Button
-              className="btn"
-              variant="outlined"
-              style={{ margin: "30px 0" }}
-            >
-              PRE-ORDER TODAY
-            </Button>
+            <Link to="/products">
+              <Button
+                className="btn"
+                variant="outlined"
+                style={{ margin: "30px 0" }}
+              >
+                PRE-ORDER TODAY
+              </Button>
+            </Link>
           </Typography>
         </Grid>
       </Grid>
@@ -292,17 +301,22 @@ const Header = () => {
               Our latest creation, in celebration of our new bakery in Beverly
               Hills!
             </Typography>
-            <Button
-              className="btn"
-              variant="outlined"
-              style={{ margin: "30px 0" }}
-            >
-              TRY OUR NEW CAKE
-            </Button>
+            <Link to="/products">
+              <Button
+                className="btn"
+                variant="outlined"
+                style={{ margin: "30px 0" }}
+              >
+                TRY OUR NEW CAKE
+              </Button>
+            </Link>
             <br />
-            <Button className="btn" variant="outlined">
-              FIND LOCATION
-            </Button>
+
+            <Link to="/local">
+              <Button className="btn" variant="outlined">
+                FIND LOCATION
+              </Button>
+            </Link>
           </Typography>
         </Grid>
         <Grid
@@ -359,6 +373,7 @@ const Header = () => {
               src="https://sweetladyjane.com/wp-content/uploads/2019/12/SLJ_Choc-Cake_6in_1200px-300x300.jpg"
               alt=""
             />
+
             <Button
               style={{
                 fontWeight: "bold",
@@ -470,13 +485,15 @@ const Header = () => {
               Need a dessert right now? See what’s available at our shops for
               pick up or delivery.
             </Typography>
-            <Button
-              className="btn"
-              variant="outlined"
-              style={{ margin: "30px 0" }}
-            >
-              SHOP NOW
-            </Button>
+            <Link to="/products">
+              <Button
+                className="btn"
+                variant="outlined"
+                style={{ margin: "30px 0" }}
+              >
+                SHOP NOW
+              </Button>
+            </Link>
             <Typography
               style={{
                 fontSize: "23px",

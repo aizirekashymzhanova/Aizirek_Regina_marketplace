@@ -32,6 +32,8 @@ const MyRoutes = () => {
         <Route path="/feedbacks" element={<Feedbacks />} />
         <Route path="/products/detail/:prodId" element={<ProdDetail />} />
         <Route path="/local" element={<Location />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
         <Route
           path="/admin"
           element={
@@ -44,8 +46,6 @@ const MyRoutes = () => {
           <Route path="add" element={<Add />} />
           <Route path="edit/:id" element={<Edit />} />
         </Route>
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
         <Route path="*" element={<Error />} />
       </Route>
     </Routes>

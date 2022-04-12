@@ -4,11 +4,11 @@
 }
 .mobile-link {
   display: flex;
-
   text-decoration: none;
   color: black !important;
 }
 
 .navbar-container {
   background: linear-gradient(to right, #fff, #f3f9a7);
+  fill: black !important;
 }

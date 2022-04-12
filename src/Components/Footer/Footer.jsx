@@ -1,3 +1,6 @@
+import React from "react";
+
+import { Link } from "react-router-dom";
 import {
   Container,
   IconButton,
@@ -6,13 +9,12 @@ import {
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
-import { Link, useNavigate } from "react-router-dom";
-import "./Footer.css";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import PinterestIcon from "@mui/icons-material/Pinterest";
 import TwitterIcon from "@mui/icons-material/Twitter";
+
+import "./Footer.css";
 
 const Footer = () => {
   return (

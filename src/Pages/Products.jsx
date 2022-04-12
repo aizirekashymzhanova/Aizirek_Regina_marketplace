@@ -1,7 +1,9 @@
-import { Container } from "@mui/material";
 import React from "react";
-import ProdList from "../Components/Products/ProdList/ProdList";
+
+import { Container } from "@mui/material";
 import { Box } from "@mui/material";
+
+import ProdList from "../Components/Products/ProdList/ProdList";
 
 const Products = () => {
   return (

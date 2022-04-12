@@ -1,10 +1,11 @@
-import { Button, Container, Paper, Typography } from "@mui/material";
 import React, { useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
-import { useProductContext } from "../Context/ProductContextProvider";
 
+import { Link, useParams } from "react-router-dom";
+
+import { Button, Container, Paper, Typography } from "@mui/material";
+
+import { useProductContext } from "../Context/ProductContextProvider";
 import MySkeleton from "../Components/Skeleton/MySkeleton";
-import { display } from "@mui/system";
 
 const ProdDetail = () => {
   const { prodId } = useParams();

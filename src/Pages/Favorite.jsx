@@ -61,7 +61,7 @@ const Favorite = () => {
           <>
             <Grid item xs={12} sm={12} md={12}>
               <h2 style={{ color: "orange" }}>
-                You don't have any favorite product yet
+                You don't have any favorite product yet!
               </h2>
               <br />
               <img

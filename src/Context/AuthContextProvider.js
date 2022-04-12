@@ -1,4 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
+
+import { useNavigate } from "react-router-dom";
+
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
@@ -8,7 +11,6 @@ import {
 import { auth } from "../firebase";
 import { ADMIN_EMAIL } from "../Helpers/consts";
 import { notify } from "../Components/Tostify/Toastify.jsx";
-import { Navigate, useNavigate } from "react-router-dom";
 
 const authContext = createContext();
 
@@ -30,7 +32,6 @@ const AuthContextProvider = ({ children }) => {
         email,
         password
       );
-      //   console.log(res);
 
       let newUser = {
         user: user.email,
@@ -39,7 +40,7 @@ const AuthContextProvider = ({ children }) => {
       };
       setCurrentUser(newUser);
       localStorage.setItem("currentUser", JSON.stringify(newUser));
-      notify("success", "Регистрация прошла успешно");
+      notify("success", "You are successfully registrated!");
       navigate("/");
     } catch (err) {
       console.log(err.code);
@@ -47,16 +48,16 @@ const AuthContextProvider = ({ children }) => {
 
       switch (err.code) {
         case "auth/invalid-email":
-          notify("error", "Некорректная почта");
+          notify("error", "Inavlid email address!");
           break;
         case "auth/email-already-in-use":
-          notify("error", "Пользователь с такой почтой уже существует");
+          notify("error", "Email address is already in use!");
           break;
         case "auth/weak-password":
-          notify("error", "Пароль должен быть не менее 6 символов");
+          notify("error", "Weak password!");
           break;
         default:
-          notify("error", "Произошла ошибка");
+          notify("error", "Something went wrong! ");
       }
     }
   };
@@ -72,7 +73,7 @@ const AuthContextProvider = ({ children }) => {
       };
       setCurrentUser(noUser);
       localStorage.setItem("currentUser", JSON.stringify(noUser));
-      notify("warning", "Пользователь вышел из сети!");
+      notify("warning", "Successfully logged out from account!");
     } catch (err) {
       console.log(err);
     }
@@ -82,7 +83,6 @@ const AuthContextProvider = ({ children }) => {
   const loginUser = async (email, password) => {
     try {
       let { user } = await signInWithEmailAndPassword(auth, email, password);
-      //   console.log(res);
 
       let newUser = {
         user: user.email,
@@ -91,7 +91,7 @@ const AuthContextProvider = ({ children }) => {
       };
       setCurrentUser(newUser);
       localStorage.setItem("currentUser", JSON.stringify(newUser));
-      notify("success", "Welcome");
+      notify("success", `Welcome 👐!`);
       navigate("/");
     } catch (err) {
       console.log(err.code);
@@ -99,16 +99,16 @@ const AuthContextProvider = ({ children }) => {
 
       switch (err.code) {
         case "auth/invalid-email":
-          notify("error", "Некорректная почта");
+          notify("error", "Invalid email");
           break;
         case "auth/user-not-found":
-          notify("error", "Пользователь с такой почтой не существует");
+          notify("error", "Email is incorrect");
           break;
         case "auth/wrong-password":
-          notify("error", "Неверный пароль");
+          notify("error", "Password is incorrect");
           break;
         default:
-          notify("error", "Произошла ошибка");
+          notify("error", "Something went wrong");
       }
     }
   };

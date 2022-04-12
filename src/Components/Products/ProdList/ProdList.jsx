@@ -1,10 +1,11 @@
+import React, { useEffect, useState } from "react";
+
+import { useSearchParams } from "react-router-dom";
+
 import { Grid, Pagination } from "@mui/material";
 import { useProductContext } from "../../../Context/ProductContextProvider";
 import OneProduct from "../OneProduct/OneProduct";
-import React, { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
 import { PRODUCTS_LIMIT } from "../../../Helpers/consts";
-// import Spinner from "../../Spinner/Spinner";
 import Filter from "../Filter/Filter";
 import MySkeleton from "../../Skeleton/MySkeleton";
 

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
-import { useProductContext } from "../../../Context/ProductContextProvider";
-import Spinner from "../../Spinner/Spinner";
+
+import { Link } from "react-router-dom";
+
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -8,11 +9,12 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { Fab, IconButton } from "@mui/material";
+import { IconButton } from "@mui/material";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import EditIcon from "@mui/icons-material/Edit";
-import { Link } from "react-router-dom";
+
 import "./List.css";
+import { useProductContext } from "../../../Context/ProductContextProvider";
 import MySkeleton from "../../Skeleton/MySkeleton";
 
 const List = () => {
@@ -23,10 +25,7 @@ const List = () => {
   }, []);
 
   const handleDelete = (prod) => {
-    // let answer = confirm("Действительно ли вы хотите удалить данный продукт?");
-    let answer = true;
-
-    if (answer) deleteProduct(prod);
+    deleteProduct(prod);
   };
 
   return (

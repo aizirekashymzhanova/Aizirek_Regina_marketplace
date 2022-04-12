@@ -1,5 +1,7 @@
-import axios from "axios";
 import React, { createContext, useContext, useReducer } from "react";
+
+import axios from "axios";
+
 import { useNavigate } from "react-router-dom";
 import { notify, notifyError } from "../Components/Tostify/Toastify";
 import { ACTIONS, API, PRODUCTS_LIMIT } from "../Helpers/consts";

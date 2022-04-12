@@ -16,6 +16,7 @@ import BookmarkIcon from "@mui/icons-material/Bookmark";
 import BookmarksIcon from "@mui/icons-material/Bookmarks";
 import { Button } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 
 import "./Navbar.css";
 import LiveSearch from "../LiveSearch/LiveSearch";
@@ -124,42 +125,32 @@ export default function Navbar() {
     >
       <MenuItem>
         <NavLink to="/about" className="mobile-link">
-          <IconButton
-            size="large"
-            color="inherit"
-            onClick={handleMenuClose}
-          ></IconButton>
-          <p>About</p>
+          <p onClick={handleMobileMenuClose}>About</p>
         </NavLink>
       </MenuItem>
       <MenuItem>
         <NavLink to="/products" className="mobile-link">
-          <IconButton size="large" color="inherit"></IconButton>
-          <p>Shop</p>
+          <p onClick={handleMobileMenuClose}>Shop</p>
         </NavLink>
       </MenuItem>
       <MenuItem>
         <NavLink to="/feedbacks" className="mobile-link">
-          <IconButton size="large" color="inherit"></IconButton>
-          <p>Feedbacks</p>
+          <p onClick={handleMobileMenuClose}>Feedbacks</p>
         </NavLink>
       </MenuItem>
       <MenuItem>
         <NavLink to="/local" className="mobile-link">
-          <IconButton size="large" color="inherit"></IconButton>
-          <p>Location</p>
+          <p onClick={handleMobileMenuClose}>Location</p>
         </NavLink>
       </MenuItem>
       <MenuItem>
         <NavLink to="/cart" className="mobile-link">
-          <IconButton size="large" color="inherit"></IconButton>
-          <p>My Cart</p>
+          <p onClick={handleMobileMenuClose}>My Cart</p>
         </NavLink>
       </MenuItem>
       <MenuItem>
         <NavLink to="/favorite" className="mobile-link">
-          <IconButton size="large" color="inherit"></IconButton>
-          <p>My Favorites</p>
+          <p onClick={handleMobileMenuClose}>My Favorites</p>
         </NavLink>
       </MenuItem>
       {currentUser?.isAdmin && (
@@ -183,8 +174,7 @@ export default function Navbar() {
           aria-label="account of current user"
           aria-controls="primary-search-account-menu"
           aria-haspopup="true"
-          // color="inherit"
-          sx={{ color: currentUser?.isLogged ? "green" : "white" }}
+          sx={{ color: currentUser?.isLogged ? "warning" : "inherit" }}
         >
           <AccountCircle />
         </IconButton>
@@ -277,7 +267,7 @@ export default function Navbar() {
               <Button
                 sx={{
                   my: 2,
-                  color: "white",
+                  color: "black",
                   display: "block",
                   fontSize: "16px",
                 }}
@@ -324,8 +314,13 @@ export default function Navbar() {
               aria-controls={menuId}
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
+              sx={{ color: currentUser?.isLogged ? "green" : "black" }}
             >
-              <AccountCircle />
+              {currentUser?.isAdmin ? (
+                <AdminPanelSettingsIcon />
+              ) : (
+                <AccountCircle />
+              )}
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: "flex", md: "none" } }}>

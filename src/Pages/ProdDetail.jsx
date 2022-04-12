@@ -6,6 +6,8 @@ import { Button, Container, Paper, Typography } from "@mui/material";
 
 import { useProductContext } from "../Context/ProductContextProvider";
 import MySkeleton from "../Components/Skeleton/MySkeleton";
+import AddCom from "../Components/Comments/AddCom";
+import ListCom from "../Components/Comments/ListCom";
 
 const ProdDetail = () => {
   const { prodId } = useParams();
@@ -42,6 +44,8 @@ const ProdDetail = () => {
           ) : (
             <MySkeleton />
           )}
+          <ListCom />
+          <AddCom />
         </Paper>
       </div>
     </Container>

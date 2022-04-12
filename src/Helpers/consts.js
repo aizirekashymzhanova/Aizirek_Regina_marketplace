@@ -1,8 +1,10 @@
 export const API = "http://localhost:8000/products";
+export const APIC = "http://localhost:8000/comments";
 
 export const ACTIONS = {
   GET_PRODUCTS: "GET_PRODUCTS",
   GET_ONE_PRODUCT: "GET_ONE_PRODUCT",
+  GET_COM: "GET_COM",
 };
 
 export const CART = {
@@ -11,6 +13,9 @@ export const CART = {
 };
 export const FAV = {
   GET_FAV: "GET_FAV",
+};
+export const LIKES = {
+  GET_LIKES: "GET_LIKES",
 };
 
 export const PRODUCTS_LIMIT = 3;

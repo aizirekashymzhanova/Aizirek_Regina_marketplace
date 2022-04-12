@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -21,10 +21,9 @@ import BookmarkAddIcon from "@mui/icons-material/BookmarkAdd";
 
 import { useCart } from "../../../Context/CartContextProvider";
 import { useAuth } from "../../../Context/AuthContextProvider";
-import { notify } from "../../Tostify/Toastify";
 import { useFavorite } from "../../../Context/FavoriteContextProvider";
-import Like from "../../Header/Like/Like";
-
+import { notify } from "../../Tostify/Toastify";
+import { LIKES } from "../../../Helpers/consts";
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 export default function OneProduct({ item }) {
@@ -36,13 +35,29 @@ export default function OneProduct({ item }) {
 
   const navigate = useNavigate();
 
+  //likes
+
   const [like, setLike] = useState(0);
-  function increment() {
-    setLike((prevState) => prevState + 1);
-  }
-  function decrement() {
-    setLike((prevState) => prevState - 1);
-  }
+  const [likeActive, setLikeactive] = useState(false);
+
+  const liked = () => {
+    if (likeActive) {
+      setLikeactive(false);
+      setLike((prev) => prev - 1);
+      localStorage.setItem("likes", JSON.stringify(like));
+    } else {
+      setLikeactive(true);
+      setLike((prev) => prev + 1);
+      localStorage.setItem("likes", JSON.stringify(like));
+    }
+  };
+  let getLikes = () => {
+    let likes = +localStorage.getItem("likes") || 0;
+  };
+  useEffect(() => {
+    getLikes();
+  });
+
   return (
     <Grid item xs={12} sm={6} md={4}>
       <Card sx={{ maxWidth: 345, height4: 500 }} className="one-card">
@@ -87,7 +102,10 @@ export default function OneProduct({ item }) {
             </IconButton>
           )}
 
-          <IconButton color="inherit" onClick={() => navigate("/feedbacks")}>
+          <IconButton
+            color="inherit"
+            onClick={() => navigate("/products/detail/:prodId")}
+          >
             <MapsUgcIcon />
           </IconButton>
 
@@ -114,12 +132,13 @@ export default function OneProduct({ item }) {
               {inFav ? <BookmarkRemoveIcon /> : <BookmarkAddIcon />}
             </IconButton>
           )}
-          <IconButton color="inherit" onClick={increment}>
-            <Checkbox
-              {...label}
-              icon={<FavoriteBorderIcon />}
-              checkedIcon={<FavoriteIcon color="warning" />}
-            />
+          <IconButton color="inherit" onClick={liked}>
+            {likeActive ? (
+              <FavoriteIcon color="warning" />
+            ) : (
+              <FavoriteBorderIcon />
+            )}
+
             {like}
           </IconButton>
           <Button component={Link} to={`detail/${item.id}`} size="small">

@@ -5,19 +5,22 @@ import MyRoutes from "./MyRoutes";
 import CartContextProvider from "./Context/CartContextProvider";
 import AuthContextProvider from "./Context/AuthContextProvider";
 import FavoriteContextProvider from "./Context/FavoriteContextProvider";
+import ComContextProvider from "./Context/ComContextProvider";
 
 function App() {
   return (
-    <FavoriteContextProvider>
-      <AuthContextProvider>
-        <CartContextProvider>
-          <ProductContextProvider>
-            <Toastify />
-            <MyRoutes />
-          </ProductContextProvider>
-        </CartContextProvider>
-      </AuthContextProvider>
-    </FavoriteContextProvider>
+    <ComContextProvider>
+      <FavoriteContextProvider>
+        <AuthContextProvider>
+          <CartContextProvider>
+            <ProductContextProvider>
+              <Toastify />
+              <MyRoutes />
+            </ProductContextProvider>
+          </CartContextProvider>
+        </AuthContextProvider>
+      </FavoriteContextProvider>
+    </ComContextProvider>
   );
 }
 export default App;

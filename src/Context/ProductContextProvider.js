@@ -16,6 +16,7 @@ const INIT_STATE = {
   products: [],
   oneProd: null,
   pageTotalCount: 1,
+  comments: [],
 };
 
 function reducer(state = INIT_STATE, action) {

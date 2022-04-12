@@ -10,7 +10,7 @@ const Like = () => {
   }
   return (
     <div>
-      <p onClick={increment}>{like}</p>
+      <p>{like}</p>
     </div>
   );
 };

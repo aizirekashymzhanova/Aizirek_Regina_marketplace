@@ -8,17 +8,32 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
-import { Container } from "@mui/material";
+import { Container, IconButton } from "@mui/material";
 import FaceIcon from "@mui/icons-material/Face";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import { useAuth } from "../../Context/AuthContextProvider";
+import { notify } from "../Tostify/Toastify";
 
 const ListCom = () => {
-  const { comments, getCom, addCom } = useComContext();
+  const { comments, getCom, delCom } = useComContext();
   const { prodId } = useParams();
-  console.log(comments);
+  const { currentUser } = useAuth();
 
   useEffect(() => {
     getCom(prodId);
   }, []);
+
+  const del = (item) => {
+    if (
+      currentUser.user === item.author ||
+      currentUser.user === "admin@gmail.com"
+    ) {
+      delCom(item.id, prodId);
+      notify("warning", "Comment deleted,successfully!");
+    } else {
+      notify("error", "Only admin and the author can delete comments!");
+    }
+  };
 
   return (
     <Container>
@@ -33,18 +48,22 @@ const ListCom = () => {
                 <ListItemText
                   secondary={
                     <React.Fragment>
-                      <Typography
+                      <span
                         sx={{ display: "inline" }}
                         component="span"
                         variant="body2"
                         color="text.primary"
                       >
                         {item.author}
-                      </Typography>
-                      <Typography>{item.title}</Typography>
+                      </span>{" "}
+                      <br />
+                      <span>{item.title}</span>
                     </React.Fragment>
                   }
                 />
+                <IconButton onClick={() => del(item)}>
+                  <DeleteOutlineIcon />
+                </IconButton>
               </ListItem>
               <Divider variant="inset" component="li" />
             </List>

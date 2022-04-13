@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 
 import { Link, useParams } from "react-router-dom";
-
-import { Button, Container, Paper, Typography, Box } from "@mui/material";
+import { Button, Container, Typography, Box } from "@mui/material";
 
 import { useProductContext } from "../Context/ProductContextProvider";
 import MySkeleton from "../Components/Skeleton/MySkeleton";
@@ -30,7 +29,7 @@ const ProdDetail = () => {
         {oneProd ? (
           <>
             <h2>More details about {oneProd.title}</h2>
-            <img width="50%" src={oneProd.img} alt="" />
+            <img width="40%" src={oneProd.img} alt="" />
             <Typography m="5px"> ${oneProd.price}</Typography>
             <Typography m="10px" align="center">
               {oneProd.description}

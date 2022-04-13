@@ -1,7 +1,6 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -11,11 +10,9 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Grid, IconButton } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import MapsUgcIcon from "@mui/icons-material/MapsUgc";
-import Checkbox from "@mui/material/Checkbox";
+
 import BookmarkRemoveIcon from "@mui/icons-material/BookmarkRemove";
 import BookmarkAddIcon from "@mui/icons-material/BookmarkAdd";
 
@@ -23,8 +20,6 @@ import { useCart } from "../../../Context/CartContextProvider";
 import { useAuth } from "../../../Context/AuthContextProvider";
 import { useFavorite } from "../../../Context/FavoriteContextProvider";
 import { notify } from "../../Tostify/Toastify";
-import { LIKES } from "../../../Helpers/consts";
-const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 export default function OneProduct({ item }) {
   const { addDelToCart, isProdInCart } = useCart();
@@ -32,8 +27,6 @@ export default function OneProduct({ item }) {
   const [inCart, setInCart] = useState(isProdInCart(item.id));
   const [inFav, setInFav] = useState(isProdInFav(item.id));
   const { currentUser } = useAuth();
-
-  const navigate = useNavigate();
 
   //likes
 
@@ -56,7 +49,7 @@ export default function OneProduct({ item }) {
   };
   useEffect(() => {
     getLikes();
-  });
+  }, []);
 
   return (
     <Grid item xs={12} sm={6} md={4}>
@@ -135,7 +128,7 @@ export default function OneProduct({ item }) {
             {like}
           </IconButton>
           <Button component={Link} to={`detail/${item.id}`} size="small">
-            <MoreHorizIcon />
+            more...
           </Button>
         </CardActions>
       </Card>

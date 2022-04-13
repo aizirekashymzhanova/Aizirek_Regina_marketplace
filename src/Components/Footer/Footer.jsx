@@ -28,8 +28,8 @@ const Footer = () => {
             <ListItemText primary="ABOUT" />
           </ListItemButton>
 
-          <ListItemButton component={Link} to="/feedbacks">
-            <ListItemText primary="FEEDBACKS" />
+          <ListItemButton component={Link} to="/local">
+            <ListItemText primary="LOCATIONS" />
           </ListItemButton>
         </Box>
         <Box className="footer-inside" align="center">

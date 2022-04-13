@@ -1,4 +1,4 @@
-import { Button, Container, TextField, Typography } from "@mui/material";
+import { Button, Container, TextField } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAuth } from "../../Context/AuthContextProvider";
@@ -13,7 +13,7 @@ const AddCom = () => {
   const [values, setValues] = useState({
     author: "",
     title: "",
-    prodId: prodId,
+    prodId: +prodId,
   });
 
   useEffect(() => {
@@ -29,15 +29,19 @@ const AddCom = () => {
   };
 
   function handleClick() {
-    addCom(values);
-    setValues({ title: "", author: "" });
-    getCom(prodId);
+    if (!values.title) {
+      alert("You can not send empty blank!");
+    } else {
+      addCom(values);
+      setValues({ title: "", author: currentUser.user, prodId: +prodId });
+      getCom(prodId);
+    }
   }
   return (
     <Container sx={{ display: "flex", my: "20px" }}>
       <TextField
         id="outlined-multiline-static"
-        label="Your comment"
+        label="Add new comment..."
         multiline
         fullWidth
         rows={3}

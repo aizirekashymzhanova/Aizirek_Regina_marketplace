@@ -31,3 +31,7 @@ code {
     rgba(28, 26, 26, 0.54)
   ) !important ;
 }
+a {
+  color: black !important;
+  font-weight: bold;
+}

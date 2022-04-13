@@ -10,7 +10,7 @@ import {
 
 import Card from "reactjs-credit-card/card";
 
-import { Button, TextField } from "@mui/material";
+import { Button, TextField, Typography } from "@mui/material";
 
 import { notify } from "../Components/Tostify/Toastify";
 import { useCart } from "../Context/CartContextProvider";
@@ -18,7 +18,7 @@ import { useState } from "react";
 
 export default function App() {
   const navigate = useNavigate();
-  const { getCartLength, cart } = useCart();
+  const { getCartLength, cartLength, cart } = useCart();
   const [textValues, SetTextValues] = useState({
     name: "",
     num: "",
@@ -32,25 +32,13 @@ export default function App() {
 
   const handlePay = () => {
     if (!textValues.name || !textValues.cvv || !textValues.num) {
-      notify("error", "Fill all the blanks");
+      notify("error", "Fill all the blanks!");
     } else {
       notify("success", "Dear customer, thanks for your shopping! ");
       localStorage.clear();
       getCartLength();
       navigate("/");
     }
-  };
-
-  const style = {
-    position: "absolute",
-    top: "50%",
-    // left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: 400,
-    bgcolor: "background.paper",
-    border: "2px solid #000",
-    boxShadow: 24,
-    p: 4,
   };
 
   return (
@@ -105,6 +93,8 @@ export default function App() {
             value={textValues.cvv}
           />
         </div>
+        <br />
+        <Typography>Total items quantity: {cartLength}</Typography>
         <br />
         <Button
           variant="outlined"

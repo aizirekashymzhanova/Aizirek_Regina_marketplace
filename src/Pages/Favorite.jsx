@@ -9,6 +9,8 @@ import CardMedia from "@mui/material/CardMedia";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import ClearIcon from "@mui/icons-material/Clear";
 
 import { useFavorite } from "../Context/FavoriteContextProvider";
 
@@ -29,7 +31,7 @@ const Favorite = () => {
                 <Card
                   sx={{
                     maxWidth: 345,
-                    height: "300px",
+                    height: "350px",
                   }}
                 >
                   <CardMedia
@@ -38,13 +40,7 @@ const Favorite = () => {
                     image={elem.item.img}
                     alt={elem.item.title}
                   />
-                  <CardContent
-                    sx={{
-                      display: "flex",
-                      alignItems: "baseline",
-                      justifyContent: "center",
-                    }}
-                  >
+                  <CardContent>
                     <Typography
                       gutterBottom
                       variant="body1"
@@ -53,11 +49,19 @@ const Favorite = () => {
                     >
                       {elem.item.title}
                     </Typography>
+                    <br />
                     <Button
                       style={{ fontSize: "15px" }}
                       onClick={() => deleteProdInFav(elem.item.id)}
                     >
-                      Delete
+                      <ClearIcon color="inherit" />
+                    </Button>
+                    <Button
+                      style={{ fontSize: "15px" }}
+                      component={Link}
+                      to={`/products/detail/${elem.item.id}`}
+                    >
+                      <MoreHorizIcon />
                     </Button>
                   </CardContent>
                 </Card>

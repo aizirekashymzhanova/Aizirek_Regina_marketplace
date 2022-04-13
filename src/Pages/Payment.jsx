@@ -31,8 +31,6 @@ export default function App() {
   };
 
   const handlePay = () => {
-    console.log(textValues);
-
     if (!textValues.name || !textValues.cvv || !textValues.num) {
       notify("error", "Fill all the blanks");
     } else {
@@ -58,12 +56,14 @@ export default function App() {
   return (
     <div
       style={{
-        paddingTop: "50px",
-        paddingBottom: "50px",
+
+        paddingTop: "10px",
+        paddingBottom: "10px",
         margin: "auto",
-      }}
+        textAlign: "center",
+
     >
-      <Card />
+      <Card className="card" />
       <form
         style={{
           display: "flex",
@@ -116,6 +116,12 @@ export default function App() {
           PAY ${cart.totalPrice}
         </Button>
       </form>
+      <br />
+      <img
+        width="75%"
+        src="https://freepikpsd.com/file/2020/03/Payment-Method-PNG.png"
+        alt=""
+      />
     </div>
   );
 }

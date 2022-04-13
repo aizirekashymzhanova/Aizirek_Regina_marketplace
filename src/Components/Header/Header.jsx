@@ -625,7 +625,7 @@ const Header = () => {
               color: "black",
             }}
           >
-            sweetladyjanebakeries
+            sweetjanebakeries
           </a>
         </Box>
         <Grid

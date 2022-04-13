@@ -28,6 +28,7 @@ function reducer(state = INIT_STATE, action) {
 }
 const ComContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
+
   const { prodId } = useParams();
 
   const getCom = async (id) => {
@@ -44,10 +45,17 @@ const ComContextProvider = ({ children }) => {
   const addCom = async (newCom) => {
     try {
       let res = await axios.post(APIC, newCom);
-      getCom();
-      console.log(getCom);
+      getCom(newCom.prodId);
     } catch (err) {
       notifyError(err);
+    }
+  };
+  const delCom = async (id, prodId) => {
+    try {
+      let res = await axios.delete(`${APIC}/${id}`);
+      getCom(prodId);
+    } catch (err) {
+      console.log(err);
     }
   };
   return (
@@ -56,6 +64,7 @@ const ComContextProvider = ({ children }) => {
         comments: state.comments,
         getCom,
         addCom,
+        delCom,
       }}
     >
       {children}

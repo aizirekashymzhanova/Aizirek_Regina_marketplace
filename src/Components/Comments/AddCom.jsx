@@ -1,8 +1,9 @@
-import { Button, TextField, Typography } from "@mui/material";
+import { Button, Container, TextField } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAuth } from "../../Context/AuthContextProvider";
 import { useComContext } from "../../Context/ComContextProvider";
+import SendIcon from "@mui/icons-material/Send";
 
 const AddCom = () => {
   const { addCom, getCom } = useComContext();
@@ -14,6 +15,7 @@ const AddCom = () => {
     title: "",
     prodId: +prodId,
   });
+
   useEffect(() => {
     setValues({ ...values, author: currentUser.user });
   }, [currentUser]);
@@ -27,21 +29,30 @@ const AddCom = () => {
   };
 
   function handleClick() {
-    addCom(values);
-    setValues({ title: "", author: "" });
-    getCom(prodId);
+    if (!values.title) {
+      alert("You can not send empty blank!");
+    } else {
+      addCom(values);
+      setValues({ title: "", author: currentUser.user, prodId: +prodId });
+      getCom(prodId);
+    }
   }
   return (
-    <div>
-      <input
+    <Container sx={{ display: "flex", my: "20px" }}>
+      <TextField
+        id="outlined-multiline-static"
+        label="Add new comment..."
+        multiline
+        fullWidth
+        rows={3}
         name="title"
         value={values.title}
         onChange={(e) => handleChange(e)}
-        label="Your comment"
-        variant="outlined"
       />
-      <Button onClick={handleClick}>Send</Button>
-    </div>
+      <Button onClick={handleClick}>
+        <SendIcon sx={{ width: "50px", height: "40px" }} />
+      </Button>
+    </Container>
   );
 };
 

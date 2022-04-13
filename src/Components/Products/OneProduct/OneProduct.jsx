@@ -1,7 +1,6 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useState } from "react";
 
-import { Link, useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -11,11 +10,9 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Grid, IconButton } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import MapsUgcIcon from "@mui/icons-material/MapsUgc";
-import Checkbox from "@mui/material/Checkbox";
+
 import BookmarkRemoveIcon from "@mui/icons-material/BookmarkRemove";
 import BookmarkAddIcon from "@mui/icons-material/BookmarkAdd";
 
@@ -23,64 +20,36 @@ import { useCart } from "../../../Context/CartContextProvider";
 import { useAuth } from "../../../Context/AuthContextProvider";
 import { useFavorite } from "../../../Context/FavoriteContextProvider";
 import { notify } from "../../Tostify/Toastify";
-import { useLikeContext } from "../../../Context/LikeContextProvider";
-import { useProductContext } from "../../../Context/ProductContextProvider";
-
-const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 export default function OneProduct({ item }) {
   const { addDelToCart, isProdInCart } = useCart();
   const { addDelToFav, isProdInFav } = useFavorite();
-  const {
-    addLike,
-    delLike,
-    liked,
-    likes,
-    likesLength,
-    getLikes,
-    getLikesLengthforOne,
-  } = useLikeContext();
   const [inCart, setInCart] = useState(isProdInCart(item.id));
   const [inFav, setInFav] = useState(isProdInFav(item.id));
   const { currentUser } = useAuth();
 
-  const navigate = useNavigate();
-
   //likes
 
-  const [like, setLike] = useState({
-    user: "",
-    prodId: +item.id,
-  });
+  const [like, setLike] = useState(0);
+  const [likeActive, setLikeactive] = useState(false);
 
-  useEffect(() => {
-    getLikesLengthforOne(like.prodId);
-    // getLikes();
-  }, []);
-  useEffect(() => {
-    console.log("works" + like.prodId, likesLength);
-  }, [likesLength]);
-
-  useEffect(() => {
-    setLike({ ...like, user: currentUser.user });
-  }, [currentUser]);
-
-  const addDelLike = async () => {
-    let checkLikedUsers = likes
-      .filter((obj) => {
-        return like.prodId === obj.prodId;
-      })
-      .some((i) => i.user === like.user);
-    if (checkLikedUsers) {
-      delLike();
+  const liked = () => {
+    if (likeActive) {
+      setLikeactive(false);
+      setLike((prev) => prev - 1);
+      localStorage.setItem("likes", JSON.stringify(like));
     } else {
-      addLike(like);
+      setLikeactive(true);
+      setLike((prev) => prev + 1);
+      localStorage.setItem("likes", JSON.stringify(like));
     }
   };
-  const handleLike = () => {
-    addDelLike(like);
-    getLikesLengthforOne(item.id);
+  let getLikes = () => {
+    let likes = +localStorage.getItem("likes") || 0;
   };
+  useEffect(() => {
+    getLikes();
+  }, []);
 
   return (
     <Grid item xs={12} sm={6} md={4}>
@@ -149,12 +118,17 @@ export default function OneProduct({ item }) {
               {inFav ? <BookmarkRemoveIcon /> : <BookmarkAddIcon />}
             </IconButton>
           )}
-          <IconButton color="inherit" onClick={() => handleLike()}>
-            {liked ? <FavoriteIcon color="warning" /> : <FavoriteBorderIcon />}
-            {likesLength}
+          <IconButton color="inherit" onClick={liked}>
+            {likeActive ? (
+              <FavoriteIcon color="warning" />
+            ) : (
+              <FavoriteBorderIcon />
+            )}
+
+            {like}
           </IconButton>
           <Button component={Link} to={`detail/${item.id}`} size="small">
-            <MoreHorizIcon color="inherit" />
+            more...
           </Button>
         </CardActions>
       </Card>

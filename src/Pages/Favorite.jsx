@@ -6,6 +6,7 @@ import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
+import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
@@ -18,43 +19,49 @@ const Favorite = () => {
     getFav();
   }, []);
   return (
-    <div style={{ textAlign: "center" }}>
+    <div style={{ textAlign: "center", margin: "20px" }}>
       <h1 style={{ color: "orange" }}>My Favorites</h1>
       <Grid container spacing={2}>
         {fav?.products.length > 0 ? (
           fav.products.map((elem) => (
-            <Grid item xs={12} sm={6} md={4} key={elem.item.id}>
-              <Card
-                sx={{
-                  maxWidth: 345,
-                  backgroundColor: "#3A3A38",
-                  height: "300px",
-                }}
-              >
-                <CardMedia
-                  component="img"
-                  height="220"
-                  image={elem.item.img}
-                  alt={elem.item.title}
-                />
-                <CardContent sx={{ display: "flex", padding: 2 }}>
-                  <Typography
-                    gutterBottom
-                    variant="body1"
-                    color="white"
-                    component="div"
-                    mt="6"
+            <Grid item xs={12} sm={6} md={4} lg={3} key={elem.item.id}>
+              <Container>
+                <Card
+                  sx={{
+                    maxWidth: 345,
+                    height: "300px",
+                  }}
+                >
+                  <CardMedia
+                    component="img"
+                    height="220"
+                    image={elem.item.img}
+                    alt={elem.item.title}
+                  />
+                  <CardContent
+                    sx={{
+                      display: "flex",
+                      alignItems: "baseline",
+                      justifyContent: "center",
+                    }}
                   >
-                    {elem.item.title}
-                  </Typography>
-                  <Button
-                    style={{ margin: 0 }}
-                    onClick={() => deleteProdInFav(elem.item.id)}
-                  >
-                    ❌
-                  </Button>
-                </CardContent>
-              </Card>
+                    <Typography
+                      gutterBottom
+                      variant="body1"
+                      color="black"
+                      component="div"
+                    >
+                      {elem.item.title}
+                    </Typography>
+                    <Button
+                      style={{ fontSize: "15px" }}
+                      onClick={() => deleteProdInFav(elem.item.id)}
+                    >
+                      Delete
+                    </Button>
+                  </CardContent>
+                </Card>
+              </Container>
             </Grid>
           ))
         ) : (
@@ -65,6 +72,7 @@ const Favorite = () => {
               </h2>
               <br />
               <img
+                width="60%"
                 src="https://media0.giphy.com/media/3ohhwsjzpejaSWoTkI/200.gif"
                 alt=""
               />
@@ -74,6 +82,7 @@ const Favorite = () => {
                 variant="outlined"
                 color="warning"
                 to="/products"
+                sx={{ margin: "10px" }}
               >
                 Start Shopping
               </Button>

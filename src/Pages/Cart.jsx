@@ -118,6 +118,7 @@ const Cart = () => {
               variant="contained"
               color="warning"
               onClick={() => navigate("/payment")}
+              sx={{ marginBottom: "20px" }}
             >
               BUY NOW FOR ${cart.totalPrice}
             </Button>
@@ -125,11 +126,12 @@ const Cart = () => {
         ) : (
           <div style={{ textAlign: "center" }}>
             <img
+              width="100%"
               src="https://cdn3.iconfinder.com/data/icons/shopping-and-ecommerce-28/90/empty_cart-512.png"
               alt=""
             />
             <br />
-            <Button component={Link} to="/products">
+            <Button component={Link} to="/products" sx={{ margin: "20px" }}>
               Start Shopping
             </Button>
           </div>

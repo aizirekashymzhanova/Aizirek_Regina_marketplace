@@ -102,13 +102,6 @@ export default function OneProduct({ item }) {
             </IconButton>
           )}
 
-          <IconButton
-            color="inherit"
-            onClick={() => navigate("/products/detail/:prodId")}
-          >
-            <MapsUgcIcon />
-          </IconButton>
-
           {currentUser.user === null ? (
             <IconButton
               onClick={() => {
@@ -142,7 +135,7 @@ export default function OneProduct({ item }) {
             {like}
           </IconButton>
           <Button component={Link} to={`detail/${item.id}`} size="small">
-            <MoreHorizIcon color="inherit" />
+            <MoreHorizIcon />
           </Button>
         </CardActions>
       </Card>

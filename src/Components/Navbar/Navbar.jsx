@@ -13,10 +13,13 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import InfoIcon from "@mui/icons-material/Info";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
-import BookmarksIcon from "@mui/icons-material/Bookmarks";
 import { Button } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import LocalMallIcon from "@mui/icons-material/LocalMall";
+import LogoutIcon from "@mui/icons-material/Logout";
+import BookmarksIcon from "@mui/icons-material/Bookmarks";
 
 import "./Navbar.css";
 import LiveSearch from "../LiveSearch/LiveSearch";
@@ -84,6 +87,9 @@ export default function Navbar() {
             logOutUser();
           }}
         >
+          <IconButton>
+            <LogoutIcon />
+          </IconButton>
           Log out
         </MenuItem>
       )}
@@ -124,31 +130,41 @@ export default function Navbar() {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
+        <IconButton>
+          <InfoIcon />
+        </IconButton>
         <NavLink to="/about" className="mobile-link">
           <p onClick={handleMobileMenuClose}>About</p>
         </NavLink>
       </MenuItem>
       <MenuItem>
+        <IconButton>
+          <ShoppingCartIcon />
+        </IconButton>
         <NavLink to="/products" className="mobile-link">
           <p onClick={handleMobileMenuClose}>Shop</p>
         </NavLink>
       </MenuItem>
       <MenuItem>
-        <NavLink to="/feedbacks" className="mobile-link">
-          <p onClick={handleMobileMenuClose}>Feedbacks</p>
-        </NavLink>
-      </MenuItem>
-      <MenuItem>
+        <IconButton>
+          <LocationOnIcon />
+        </IconButton>
         <NavLink to="/local" className="mobile-link">
           <p onClick={handleMobileMenuClose}>Location</p>
         </NavLink>
       </MenuItem>
       <MenuItem>
+        <IconButton>
+          <LocalMallIcon />
+        </IconButton>
         <NavLink to="/cart" className="mobile-link">
           <p onClick={handleMobileMenuClose}>My Cart</p>
         </NavLink>
       </MenuItem>
       <MenuItem>
+        <IconButton>
+          <BookmarkIcon />
+        </IconButton>
         <NavLink to="/favorite" className="mobile-link">
           <p onClick={handleMobileMenuClose}>My Favorites</p>
         </NavLink>
@@ -238,18 +254,6 @@ export default function Navbar() {
             >
               ABOUT
             </Button>
-            <Button
-              sx={{
-                my: 2,
-                color: "black",
-                display: "block",
-                fontSize: "14px",
-              }}
-              component={NavLink}
-              to="/feedbacks"
-            >
-              FEEDBACKS
-            </Button>
 
             <Button
               sx={{
@@ -286,11 +290,11 @@ export default function Navbar() {
                 aria-haspopup="true"
                 color="inherit"
               >
-                {/* {fav.products.length > 0 ? ( */}
-                {/* <BookmarksIcon color="warning" />
-                ) : ( */}
-                <BookmarkIcon />
-                {/* )} */}
+                {fav.products.length > 0 ? (
+                  <BookmarksIcon color="warning" />
+                ) : (
+                  <BookmarkIcon />
+                )}
               </IconButton>
             </RouterLink>
             <RouterLink to="/cart" style={{ color: "black" }}>
@@ -330,7 +334,7 @@ export default function Navbar() {
               aria-controls={mobileMenuId}
               aria-haspopup="true"
               onClick={handleMobileMenuOpen}
-              color="inherit"
+              // color="inherit"
             >
               <MoreIcon />
             </IconButton>

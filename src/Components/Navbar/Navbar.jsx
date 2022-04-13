@@ -286,11 +286,11 @@ export default function Navbar() {
                 aria-haspopup="true"
                 color="inherit"
               >
-                {/* {fav.products.length > 0 ? ( */}
-                {/* <BookmarksIcon color="warning" />
-                ) : ( */}
-                <BookmarkIcon />
-                {/* )} */}
+                {fav.products.length > 0 ? (
+                  <BookmarksIcon color="warning" />
+                ) : (
+                  <BookmarkIcon />
+                )}
               </IconButton>
             </RouterLink>
             <RouterLink to="/cart" style={{ color: "black" }}>

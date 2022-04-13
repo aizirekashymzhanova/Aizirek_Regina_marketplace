@@ -215,82 +215,60 @@
       "id": 5
     },
     {
-      "author": "admin@gmail.com",
-      "title": "vbvnvbbvnb",
-      "prodId": "4",
-      "id": 6
-    },
-    {
-      "author": "admin@gmail.com",
-      "title": "xsxasxa",
-      "prodId": "4",
-      "id": 7
-    },
-    {
-      "author": "test@gmail.com",
-      "title": "nmbmn",
-      "prodId": "4",
-      "id": 9
-    },
-    {
-      "author": "test@gmail.com",
-      "title": "hvnbv",
-      "prodId": "4",
-      "id": 14
-    },
-    {
       "author": "test@gmail.com",
       "title": "vbnvnb",
       "prodId": "5",
       "id": 15
     },
     {
-      "author": "test@gmail.com",
-      "title": "bvbn",
+      "author": "admin@gmail.com",
+      "title": "aa",
       "prodId": "5",
       "id": 16
     },
     {
-      "author": "test@gmail.com",
-      "title": "dfgdfgd",
-      "prodId": "5",
+      "author": "admin@gmail.com",
+      "title": "assas",
+      "prodId": "4",
       "id": 17
     },
     {
-      "author": null,
-      "title": "as",
-      "prodId": "5",
+      "author": "admin@gmail.com",
+      "title": "ghhj",
+      "prodId": "4",
       "id": 18
+    }
+  ],
+  "likes": [
+    {
+      "user": "admin@gmail.com",
+      "prodId": 3,
+      "id": 1
     },
     {
-      "author": "test@gmail.com",
-      "title": "cvx",
-      "prodId": "5",
-      "id": 19
+      "user": "admin@gmail.com",
+      "prodId": 4,
+      "id": 2
     },
     {
-      "author": null,
-      "title": "as",
-      "prodId": "5",
-      "id": 20
+      "user": "admin@gmail.com",
+      "prodId": 5,
+      "id": 3
     },
     {
-      "author": null,
-      "title": "asdas",
-      "prodId": "5",
-      "id": 21
+      "user": "admin@gmail.com",
+      "prodId": 5,
+      "id": 4
     },
     {
-      "author": "test@gmail.com",
-      "title": "adasd",
-      "prodId": "5",
-      "id": 22
+      "user": "admin@gmail.com",
+      "prodId": 5,
+      "id": 5
     },
     {
-      "author": "test@gmail.com",
-      "title": "nbmn",
-      "prodId": "5",
-      "id": 23
+      "user": "admin@gmail.com",
+      "prodId": 4,
+      "id": 6
     }
   ]
 }

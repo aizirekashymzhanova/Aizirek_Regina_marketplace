@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer, useState } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 import Card from "@mui/material/Card";
@@ -23,12 +23,23 @@ import { useCart } from "../../../Context/CartContextProvider";
 import { useAuth } from "../../../Context/AuthContextProvider";
 import { useFavorite } from "../../../Context/FavoriteContextProvider";
 import { notify } from "../../Tostify/Toastify";
-import { LIKES } from "../../../Helpers/consts";
+import { useLikeContext } from "../../../Context/LikeContextProvider";
+import { useProductContext } from "../../../Context/ProductContextProvider";
+
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 export default function OneProduct({ item }) {
   const { addDelToCart, isProdInCart } = useCart();
   const { addDelToFav, isProdInFav } = useFavorite();
+  const {
+    addLike,
+    delLike,
+    liked,
+    likes,
+    likesLength,
+    getLikes,
+    getLikesLengthforOne,
+  } = useLikeContext();
   const [inCart, setInCart] = useState(isProdInCart(item.id));
   const [inFav, setInFav] = useState(isProdInFav(item.id));
   const { currentUser } = useAuth();
@@ -37,26 +48,39 @@ export default function OneProduct({ item }) {
 
   //likes
 
-  const [like, setLike] = useState(0);
-  const [likeActive, setLikeactive] = useState(false);
+  const [like, setLike] = useState({
+    user: "",
+    prodId: +item.id,
+  });
 
-  const liked = () => {
-    if (likeActive) {
-      setLikeactive(false);
-      setLike((prev) => prev - 1);
-      localStorage.setItem("likes", JSON.stringify(like));
+  useEffect(() => {
+    getLikesLengthforOne(like.prodId);
+    // getLikes();
+  }, []);
+  useEffect(() => {
+    console.log("works" + like.prodId, likesLength);
+  }, [likesLength]);
+
+  useEffect(() => {
+    setLike({ ...like, user: currentUser.user });
+  }, [currentUser]);
+
+  const addDelLike = async () => {
+    let checkLikedUsers = likes
+      .filter((obj) => {
+        return like.prodId === obj.prodId;
+      })
+      .some((i) => i.user === like.user);
+    if (checkLikedUsers) {
+      delLike();
     } else {
-      setLikeactive(true);
-      setLike((prev) => prev + 1);
-      localStorage.setItem("likes", JSON.stringify(like));
+      addLike(like);
     }
   };
-  let getLikes = () => {
-    let likes = +localStorage.getItem("likes") || 0;
+  const handleLike = () => {
+    addDelLike(like);
+    getLikesLengthforOne(item.id);
   };
-  useEffect(() => {
-    getLikes();
-  });
 
   return (
     <Grid item xs={12} sm={6} md={4}>
@@ -102,13 +126,6 @@ export default function OneProduct({ item }) {
             </IconButton>
           )}
 
-          <IconButton
-            color="inherit"
-            onClick={() => navigate("/products/detail/:prodId")}
-          >
-            <MapsUgcIcon />
-          </IconButton>
-
           {currentUser.user === null ? (
             <IconButton
               onClick={() => {
@@ -132,14 +149,9 @@ export default function OneProduct({ item }) {
               {inFav ? <BookmarkRemoveIcon /> : <BookmarkAddIcon />}
             </IconButton>
           )}
-          <IconButton color="inherit" onClick={liked}>
-            {likeActive ? (
-              <FavoriteIcon color="warning" />
-            ) : (
-              <FavoriteBorderIcon />
-            )}
-
-            {like}
+          <IconButton color="inherit" onClick={() => handleLike()}>
+            {liked ? <FavoriteIcon color="warning" /> : <FavoriteBorderIcon />}
+            {likesLength}
           </IconButton>
           <Button component={Link} to={`detail/${item.id}`} size="small">
             <MoreHorizIcon color="inherit" />

@@ -3,9 +3,9 @@ import { useParams } from "react-router-dom";
 import { useComContext } from "../../Context/ComContextProvider";
 
 const ListCom = () => {
-  const { comments, getCom } = useComContext();
   const { prodId } = useParams();
-  console.log(comments);
+
+  const { comments, getCom } = useComContext();
 
   useEffect(() => {
     getCom(prodId);

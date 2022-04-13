@@ -3,6 +3,7 @@ import React, { createContext, useContext, useReducer } from "react";
 import axios from "axios";
 import { ACTIONS, APIC } from "../Helpers/consts";
 import { notifyError } from "../Components/Tostify/Toastify";
+import { useParams } from "react-router-dom";
 
 export const comContext = createContext();
 
@@ -27,6 +28,7 @@ function reducer(state = INIT_STATE, action) {
 }
 const ComContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
+  const { prodId } = useParams();
 
   const getCom = async (id) => {
     try {
@@ -43,6 +45,7 @@ const ComContextProvider = ({ children }) => {
     try {
       let res = await axios.post(APIC, newCom);
       getCom();
+      console.log(getCom);
     } catch (err) {
       notifyError(err);
     }

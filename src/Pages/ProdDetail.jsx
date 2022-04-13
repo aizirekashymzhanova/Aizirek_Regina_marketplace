@@ -34,18 +34,17 @@ const ProdDetail = () => {
               <img width="400px" src={oneProd.img} alt="" />
               <Typography> ${oneProd.price}</Typography>
               <Typography>{oneProd.description}</Typography>
-              <Link to="/products" className="mobile-link">
-                <Button variant="outlined" color="warning">
-                  {" "}
-                  Continue Shopping
-                </Button>{" "}
-              </Link>
+              <Link to="/products" className="mobile-link"></Link>
             </>
           ) : (
             <MySkeleton />
           )}
           <ListCom />
           <AddCom />
+          <Button variant="outlined" color="warning">
+            {" "}
+            Continue Shopping
+          </Button>{" "}
         </Paper>
       </div>
     </Container>

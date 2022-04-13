@@ -12,7 +12,7 @@ const AddCom = () => {
   const [values, setValues] = useState({
     author: "",
     title: "",
-    prodId: prodId,
+    prodId: +prodId,
   });
   useEffect(() => {
     setValues({ ...values, author: currentUser.user });
@@ -29,11 +29,10 @@ const AddCom = () => {
   function handleClick() {
     addCom(values);
     setValues({ title: "", author: "" });
-    getCom();
+    getCom(prodId);
   }
   return (
     <div>
-      {/* <Typography>{author}</Typography> */}
       <input
         name="title"
         value={values.title}

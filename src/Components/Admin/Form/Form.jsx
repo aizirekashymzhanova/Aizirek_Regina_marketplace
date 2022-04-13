@@ -10,6 +10,7 @@ import Select from "@mui/material/Select";
 import { Button } from "@mui/material";
 
 import "./Form.css";
+
 const initValues = {
   title: "",
   type: "",

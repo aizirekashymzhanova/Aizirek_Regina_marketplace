@@ -65,7 +65,17 @@ const Header = () => {
           </Typography>
         </Container>
       </Box>
-      <Grid container spacing={0}>
+      <Grid
+        container
+        spacing={0}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContext: "center",
+          textAlign: "center",
+          backgroundColor: "#FBD786",
+        }}
+      >
         <Grid
           item
           xs={12}
@@ -85,17 +95,12 @@ const Header = () => {
             placement="bottom"
             variant="body1"
             component="div"
-            align="center"
-            sx={{
-              backgroundColor: "#FBD786",
-              height: "100%",
-            }}
+            my="10px"
           >
             <Typography
               style={{
                 fontWeight: "bold",
                 fontSize: "30px",
-                paddingTop: "200px",
               }}
             >
               Easter is Coming!
@@ -140,14 +145,25 @@ const Header = () => {
           </Typography>
         </Grid>
       </Grid>
-      <Grid container spacing={0}>
+      <Grid
+        container
+        spacing={0}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContext: "center",
+          textAlign: "center",
+          backgroundColor: "black",
+        }}
+      >
         <Grid item xs={12} md={6}>
           <Typography
             placement="bottom"
             variant="body1"
             component="div"
-            align="center"
             color="white"
+            my="10px"
+            p="0 40px"
             sx={{
               backgroundColor: "black",
               height: "100%",
@@ -158,7 +174,6 @@ const Header = () => {
               style={{
                 fontWeight: "bold",
                 fontSize: "30px",
-                paddingTop: "250px",
               }}
             >
               Craving chocolate?
@@ -166,7 +181,7 @@ const Header = () => {
             <Typography
               style={{
                 fontSize: "23px",
-                padding: "20px 50px",
+                margin: "10px",
               }}
             >
               We’re happy to announce the Brownie Cheesecake is back!
@@ -177,7 +192,7 @@ const Header = () => {
                 variant="outlined"
                 style={{ margin: "30px 0" }}
               >
-                PRE-ORDER TODAY
+                SHOP NOW
               </Button>
             </Link>
           </Typography>
@@ -218,11 +233,9 @@ const Header = () => {
             variant="body1"
             component="div"
             align="center"
-            // p="150px 50px"
             sx={{
               backgroundColor: "#FBD786",
               height: "100%",
-              // fontSize: "23px",
             }}
           >
             <img
@@ -263,20 +276,30 @@ const Header = () => {
                 variant="outlined"
                 style={{ margin: "30px 0" }}
               >
-                PRE-ORDER TODAY
+                SHOP NOW
               </Button>
             </Link>
           </Typography>
         </Grid>
       </Grid>
-      <Grid container spacing={0}>
+      <Grid
+        container
+        spacing={0}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContext: "center",
+          textAlign: "center",
+          backgroundColor: "black",
+        }}
+      >
         <Grid item xs={12} md={6}>
           <Typography
             placement="bottom"
             variant="body1"
             component="div"
-            align="center"
             color="white"
+            my="10px"
             sx={{
               backgroundColor: "black",
               height: "100%",
@@ -287,7 +310,6 @@ const Header = () => {
               style={{
                 fontWeight: "bold",
                 fontSize: "30px",
-                paddingTop: "250px",
               }}
             >
               The Beverly Cake
@@ -295,7 +317,7 @@ const Header = () => {
             <Typography
               style={{
                 fontSize: "23px",
-                padding: "20px 70px",
+                padding: "0 70px",
               }}
             >
               Our latest creation, in celebration of our new bakery in Beverly
@@ -305,7 +327,7 @@ const Header = () => {
               <Button
                 className="btn"
                 variant="outlined"
-                style={{ margin: "30px 0" }}
+                style={{ margin: "20px 0" }}
               >
                 TRY OUR NEW CAKE
               </Button>
@@ -313,7 +335,11 @@ const Header = () => {
             <br />
 
             <Link to="/local">
-              <Button className="btn" variant="outlined">
+              <Button
+                className="btn"
+                variant="outlined"
+                style={{ margin: "10px 0" }}
+              >
                 FIND LOCATION
               </Button>
             </Link>
@@ -439,7 +465,17 @@ const Header = () => {
           </Grid>
         </Grid>
       </Box>
-      <Grid container spacing={0}>
+      <Grid
+        container
+        spacing={0}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContext: "center",
+          textAlign: "center",
+          backgroundColor: "#e8d1e1",
+        }}
+      >
         <Grid
           item
           xs={12}
@@ -459,10 +495,9 @@ const Header = () => {
             placement="bottom"
             variant="body1"
             component="div"
-            align="center"
             color="black"
+            my="10px"
             sx={{
-              backgroundColor: "#e8d1e1",
               height: "100%",
               fontSize: "23px",
             }}
@@ -471,7 +506,6 @@ const Header = () => {
               style={{
                 fontWeight: "bold",
                 fontSize: "30px",
-                paddingTop: "150px",
               }}
             >
               Sugar Rush?
@@ -486,11 +520,7 @@ const Header = () => {
               pick up or delivery.
             </Typography>
             <Link to="/products">
-              <Button
-                className="btn"
-                variant="outlined"
-                style={{ margin: "30px 0" }}
-              >
+              <Button className="btn" variant="outlined">
                 SHOP NOW
               </Button>
             </Link>
@@ -522,14 +552,25 @@ const Header = () => {
           </Typography>
         </Grid>
       </Grid>
-      <Grid container spacing={0}>
-        <Grid item xs={12} md={6} sx={{ backgroundColor: "white" }}>
+      <Grid
+        container
+        spacing={0}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContext: "center",
+          textAlign: "center",
+          backgroundColor: "white",
+        }}
+      >
+        <Grid item xs={12} md={6}>
           <Typography
             placement="bottom"
             variant="body1"
             component="div"
             align="center"
             color="black"
+            my="10px"
             sx={{
               height: "100%",
               fontSize: "23px",
@@ -538,17 +579,16 @@ const Header = () => {
             <Typography
               style={{
                 fontWeight: "bold",
-                fontSize: "30px",
-                paddingTop: "150px",
+                fontSize: "25px",
               }}
             >
               Ordering with our app is a piece of cake!
             </Typography>
             <Typography
               style={{
-                fontSize: "23px",
-                padding: "20px 70px",
-                margin: "20px",
+                fontSize: "20px",
+                padding: "20px 50px",
+                margin: "10px",
               }}
             >
               For pick up or delivery. For now or next month. Download the Sweet

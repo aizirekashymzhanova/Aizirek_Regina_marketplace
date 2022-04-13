@@ -56,12 +56,11 @@ export default function App() {
   return (
     <div
       style={{
-
         paddingTop: "10px",
         paddingBottom: "10px",
         margin: "auto",
         textAlign: "center",
-
+      }}
     >
       <Card className="card" />
       <form

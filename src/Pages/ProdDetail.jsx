@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import { Link, useParams } from "react-router-dom";
 
-import { Button, Container, Paper, Typography } from "@mui/material";
+import { Button, Container, Paper, Typography, Box } from "@mui/material";
 
 import { useProductContext } from "../Context/ProductContextProvider";
 import MySkeleton from "../Components/Skeleton/MySkeleton";
@@ -17,38 +17,40 @@ const ProdDetail = () => {
     getOneProduct(prodId);
   }, []);
   return (
-    <Container maxWidth="lg">
-      <div>
-        <Paper
-          sx={{
-            padding: "20px",
-            alignItems: "center",
-            display: "flex",
-            flexDirection: "column",
-            bgcolor: "#FFEFBA",
-          }}
-        >
-          {oneProd ? (
-            <>
-              <h2>More details about {oneProd.title}</h2>
-              <img width="400px" src={oneProd.img} alt="" />
-              <Typography> ${oneProd.price}</Typography>
-              <Typography>{oneProd.description}</Typography>
-              <Link to="/products" className="mobile-link">
-                <Button variant="outlined" color="warning">
-                  {" "}
-                  Continue Shopping
-                </Button>{" "}
-              </Link>
-            </>
-          ) : (
-            <MySkeleton />
-          )}
-          <ListCom />
-          <AddCom />
-        </Paper>
-      </div>
-    </Container>
+    <>
+      <Container
+        sx={{
+          padding: "20px",
+          alignItems: "center",
+          display: "flex",
+          flexDirection: "column",
+          // bgcolor: "#FFEFBA",
+        }}
+      >
+        {oneProd ? (
+          <>
+            <h2>More details about {oneProd.title}</h2>
+            <img width="50%" src={oneProd.img} alt="" />
+            <Typography m="5px"> ${oneProd.price}</Typography>
+            <Typography m="10px" align="center">
+              {oneProd.description}
+            </Typography>
+            <Link to="/products" className="mobile-link">
+              <Button variant="outlined" color="warning">
+                {" "}
+                Continue Shopping
+              </Button>{" "}
+            </Link>
+          </>
+        ) : (
+          <MySkeleton />
+        )}
+      </Container>
+      <Box>
+        <ListCom />
+        <AddCom />
+      </Box>
+    </>
   );
 };
 

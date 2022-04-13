@@ -42,11 +42,12 @@ const ComContextProvider = ({ children }) => {
   const addCom = async (newCom) => {
     try {
       let res = await axios.post(APIC, newCom);
-      getCom();
+      getCom(newCom.prodId);
     } catch (err) {
       notifyError(err);
     }
   };
+
   return (
     <comContext.Provider
       value={{

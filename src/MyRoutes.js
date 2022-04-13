@@ -15,7 +15,6 @@ import Register from "./Pages/Register";
 import Login from "./Pages/Login";
 import RequireAuth from "./Components/Auth/RequireAuth";
 import ProdDetail from "./Pages/ProdDetail";
-import Feedbacks from "./Pages/Feedbacks";
 import Error from "./Pages/Error.jsx";
 import Favorite from "./Pages/Favorite";
 
@@ -29,7 +28,6 @@ const MyRoutes = () => {
         <Route path="/favorite" element={<Favorite />} />
         <Route path="/products" element={<Products />} />
         <Route path="/payment" element={<PaymentForm />} />
-        <Route path="/feedbacks" element={<Feedbacks />} />
         <Route path="/products/detail/:prodId" element={<ProdDetail />} />
         <Route path="/local" element={<Location />} />
         <Route path="/register" element={<Register />} />

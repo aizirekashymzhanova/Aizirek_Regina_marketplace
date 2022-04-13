@@ -17,8 +17,19 @@ const About = () => {
         >
           OUR STORY
         </Typography>
-        <Grid container spacing={2} m="50px 0">
-          <Grid item xs={12} md={8} sx={{ textAlign: "left" }}>
+        <Grid
+          container
+          spacing={2}
+          //  m="50px 0"
+          sx={{
+            textAlign: "left",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            marginBottom: "50px",
+          }}
+        >
+          <Grid item xs={12} md={8}>
             <Typography variant="h6" component="div" mt="50px">
               When Jane Lockhart and her husband Donald were dating, he’d often
               cook dinner and she’d make dessert. Jane soon realized that

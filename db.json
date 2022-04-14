@@ -199,25 +199,9 @@
       "description": "A golden mound of sweet shredded coconut and ground almonds dipped in dark chocolate\n\nMade with Gluten-Free ingredients",
       "img": "https://sweetladyjane.com/wp-content/uploads/2019/12/SLJ_Dark-Chocolate-Macaroons-300x300.jpg",
       "id": 25
-    },
-    {
-      "user": "",
-      "prodId": 4,
-      "id": 28
-    },
-    {
-      "user": "test@gmail.com",
-      "prodId": 4,
-      "id": 29
     }
   ],
   "comments": [
-    {
-      "author": "regina@gmail.com",
-      "title": "yam yam",
-      "prodId": "27",
-      "id": 66
-    },
     {
       "author": "test@gmail.com",
       "title": "Delicious!!!!!👍👍👍",
@@ -227,19 +211,19 @@
     {
       "author": "aizirek@gmail.com",
       "title": "🤤🤤🤤",
-      "prodId": 5,
+      "prodId": 1,
       "id": 70
     },
     {
       "author": "regina@gmail.com",
       "title": "yam yam",
-      "prodId": 6,
+      "prodId": 3,
       "id": 66
     },
     {
       "title": "Yummy)))\n",
       "author": "test@gmail.com",
-      "prodId": 4,
+      "prodId": 1,
       "id": 71
     },
     {
@@ -247,12 +231,6 @@
       "title": "yam yam",
       "prodId": 2,
       "id": 72
-    },
-    {
-      "title": "yam yam \n",
-      "author": "test@gmail.com",
-      "prodId": 2,
-      "id": 73
     }
   ],
   "likes": [

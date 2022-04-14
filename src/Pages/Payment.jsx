@@ -35,7 +35,7 @@ export default function App() {
       notify("error", "Fill all the blanks!");
     } else {
       notify("success", "Dear customer, thanks for your shopping! ");
-      localStorage.clear();
+      localStorage.removeItem("cart");
       getCartLength();
       navigate("/");
     }

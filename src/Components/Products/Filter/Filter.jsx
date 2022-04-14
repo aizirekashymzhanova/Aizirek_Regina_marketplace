@@ -31,7 +31,7 @@ const Filter = ({
   return (
     <div style={{ textAlign: "center" }}>
       <Button onClick={btnFilter}>
-        <h2>Filter</h2>
+        <h2 style={{ color: "black" }}>Filter</h2>
       </Button>
       <div style={{ display: filter ? "block" : "none" }}>
         <FormControl>

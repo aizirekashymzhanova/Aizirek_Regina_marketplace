@@ -9,6 +9,6 @@
 }
 
 .navbar-container {
-  background: linear-gradient(to right, #fff, #f3f9a7);
+  background: linear-gradient(to right, rgb(248, 220, 178), #f3f9a7);
   fill: black !important;
 }

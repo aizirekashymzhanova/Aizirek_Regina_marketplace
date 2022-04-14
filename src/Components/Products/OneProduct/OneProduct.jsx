@@ -17,9 +17,11 @@ import BookmarkRemoveIcon from "@mui/icons-material/BookmarkRemove";
 import BookmarkAddIcon from "@mui/icons-material/BookmarkAdd";
 
 import { useCart } from "../../../Context/CartContextProvider";
-import { useAuth } from "../../../Context/AuthContextProvider";
+
 import { useFavorite } from "../../../Context/FavoriteContextProvider";
 import { notify } from "../../Tostify/Toastify";
+import { useLikeContext } from "../../../Context/LikeContextProvider";
+import { useAuth } from "../../../Context/AuthContextProvider";
 
 export default function OneProduct({ item }) {
   const { addDelToCart, isProdInCart } = useCart();
@@ -28,28 +30,41 @@ export default function OneProduct({ item }) {
   const [inFav, setInFav] = useState(isProdInFav(item.id));
   const { currentUser } = useAuth();
 
-  //likes
+  const { addLike, delLike, getLike, likes, allLikes } = useLikeContext();
+  const isLikedF = () =>
+    likes.some((like) => {
+      return like.prodId === item.id;
+    });
+  const [disabled, setDisabled] = React.useState(false);
+  const [isLiked, setIsLiked] = React.useState(isLikedF());
 
-  const [like, setLike] = useState(0);
-  const [likeActive, setLikeactive] = useState(false);
+  React.useEffect(() => {
+    getLike();
+  }, []);
+  React.useEffect(() => {
+    setIsLiked(isLikedF());
+  }, [likes]);
 
-  const liked = () => {
-    if (likeActive) {
-      setLikeactive(false);
-      setLike((prev) => prev - 1);
-      localStorage.setItem("likes", JSON.stringify(like));
+  const handleSubmitLike = () => {
+    let forDelId = likes.find((prod) => prod.prodId === item.id);
+    // console.log(forDelId);
+    let obj = {
+      user: currentUser.user,
+      prodId: item.id,
+    };
+    // console.log(obj);
+    let checkProdIsLiked = likes.some((elem) => {
+      return obj.prodId === elem.prodId;
+    });
+    if (checkProdIsLiked && forDelId) {
+      delLike(forDelId.id);
     } else {
-      setLikeactive(true);
-      setLike((prev) => prev + 1);
-      localStorage.setItem("likes", JSON.stringify(like));
+      addLike(obj);
     }
   };
-  let getLikes = () => {
-    let likes = +localStorage.getItem("likes") || 0;
-  };
-  useEffect(() => {
-    getLikes();
-  }, []);
+  let oneProdLikes = allLikes.filter((elem) => {
+    return elem.prodId === item.id;
+  });
 
   return (
     <Grid item xs={12} sm={6} md={4}>
@@ -118,14 +133,19 @@ export default function OneProduct({ item }) {
               {inFav ? <BookmarkRemoveIcon /> : <BookmarkAddIcon />}
             </IconButton>
           )}
-          <IconButton color="inherit" onClick={liked}>
-            {likeActive ? (
+          <IconButton
+            color="inherit"
+            onClick={() => {
+              setDisabled(true);
+              handleSubmitLike();
+            }}
+          >
+            {isLiked ? (
               <FavoriteIcon color="warning" />
             ) : (
               <FavoriteBorderIcon />
             )}
-
-            {like}
+            {oneProdLikes.length}
           </IconButton>
           <Button component={Link} to={`detail/${item.id}`} size="small">
             more...

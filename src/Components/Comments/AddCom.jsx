@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { useAuth } from "../../Context/AuthContextProvider";
 import { useComContext } from "../../Context/ComContextProvider";
 import SendIcon from "@mui/icons-material/Send";
+import { notify, notifyError } from "../Tostify/Toastify";
 
 const AddCom = () => {
   const { addCom, getCom } = useComContext();
@@ -30,7 +31,7 @@ const AddCom = () => {
 
   function handleClick() {
     if (!values.title) {
-      alert("You can not send empty blank!");
+      notify("error", "You can not send empty blank!");
     } else {
       addCom(values);
       setValues({ title: "", author: currentUser.user, prodId: +prodId });

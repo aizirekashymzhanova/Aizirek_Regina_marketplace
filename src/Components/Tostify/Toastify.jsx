@@ -20,7 +20,7 @@ export const notifyError = (err) => {
   if (err && err?.response) {
     notify("error", `${err?.response.status} ${err?.response.statusText}`);
   } else {
-    notify("error", "Произошла ошибка!");
+    notify("error", "Something went wrong!");
   }
 };
 

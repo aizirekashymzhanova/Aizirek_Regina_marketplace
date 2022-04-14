@@ -30,7 +30,7 @@ const Cart = () => {
   return (
     <div style={{ textAlign: "center" }}>
       <Container maxWidth="lg">
-        <h1 style={{ color: "orange" }}> MY CART</h1>
+        <h1> MY CART</h1>
         {cart?.products.length > 0 ? (
           <>
             <TableContainer component={Paper}>
@@ -108,10 +108,7 @@ const Cart = () => {
                 </TableBody>
               </Table>
             </TableContainer>
-            <Typography
-              variant="h4"
-              style={{ color: "orange", margin: "20px" }}
-            >
+            <Typography variant="h4" style={{ margin: "20px" }}>
               Total price : ${cart.totalPrice}
             </Typography>
             <Button

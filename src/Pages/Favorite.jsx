@@ -22,7 +22,7 @@ const Favorite = () => {
   }, []);
   return (
     <div style={{ textAlign: "center", margin: "20px" }}>
-      <h1 style={{ color: "orange" }}>My Favorites</h1>
+      <h1>My Favorites</h1>
       <Grid container spacing={2}>
         {fav?.products.length > 0 ? (
           fav.products.map((elem) => (
@@ -46,6 +46,7 @@ const Favorite = () => {
                       variant="body1"
                       color="black"
                       component="div"
+                      sx={{ fontWeight: "bold" }}
                     >
                       {elem.item.title}
                     </Typography>
@@ -54,14 +55,14 @@ const Favorite = () => {
                       style={{ fontSize: "15px" }}
                       onClick={() => deleteProdInFav(elem.item.id)}
                     >
-                      <ClearIcon color="inherit" />
+                      Delete
                     </Button>
                     <Button
                       style={{ fontSize: "15px" }}
                       component={Link}
                       to={`/products/detail/${elem.item.id}`}
                     >
-                      <MoreHorizIcon />
+                      more...
                     </Button>
                   </CardContent>
                 </Card>
@@ -71,9 +72,7 @@ const Favorite = () => {
         ) : (
           <>
             <Grid item xs={12} sm={12} md={12}>
-              <h2 style={{ color: "orange" }}>
-                You don't have any favorite product yet!
-              </h2>
+              <h2>You don't have any favorite product yet!</h2>
               <br />
               <img
                 width="60%"
@@ -84,7 +83,7 @@ const Favorite = () => {
               <Button
                 component={Link}
                 variant="outlined"
-                color="warning"
+                color="inherit"
                 to="/products"
                 sx={{ margin: "10px" }}
               >

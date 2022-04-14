@@ -3,7 +3,8 @@ import React, { createContext, useContext, useReducer } from "react";
 import axios from "axios";
 import { ACTIONS, APIC } from "../Helpers/consts";
 import { notifyError } from "../Components/Tostify/Toastify";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useAuth } from "./AuthContextProvider";
 
 export const comContext = createContext();
 
@@ -28,6 +29,8 @@ function reducer(state = INIT_STATE, action) {
 }
 const ComContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
+  const { currentUser } = useAuth();
+  const navigate = useNavigate();
 
   const { prodId } = useParams();
 
@@ -43,11 +46,15 @@ const ComContextProvider = ({ children }) => {
     }
   };
   const addCom = async (newCom) => {
-    try {
-      let res = await axios.post(APIC, newCom);
-      getCom(newCom.prodId);
-    } catch (err) {
-      notifyError(err);
+    if (currentUser?.isLogged) {
+      try {
+        let res = await axios.post(APIC, newCom);
+        getCom(newCom.prodId);
+      } catch (err) {
+        notifyError(err);
+      }
+    } else {
+      navigate("/login");
     }
   };
   const delCom = async (id, prodId) => {

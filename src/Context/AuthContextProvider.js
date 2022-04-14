@@ -92,7 +92,7 @@ const AuthContextProvider = ({ children }) => {
       setCurrentUser(newUser);
       localStorage.setItem("currentUser", JSON.stringify(newUser));
       notify("success", `Welcome 👐!`);
-      navigate("/");
+      navigate("/products");
     } catch (err) {
       console.log(err.code);
       console.log(err.message);
